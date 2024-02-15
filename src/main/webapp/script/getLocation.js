@@ -24,8 +24,8 @@ function showPosition(position) {
     document.getElementById('longitude').style.display = 'block';
 
     // Set the obtained coordinates in the location fields
-    document.getElementById('latitude').innerText = `Latitude: ${latitude}`;
-    document.getElementById('longitude').innerText = `Longitude: ${longitude}`;
+    document.getElementById('latitude').value= `${latitude}`;
+    document.getElementById('longitude').value = `${longitude}`;
 }
 
 function showError(error) {

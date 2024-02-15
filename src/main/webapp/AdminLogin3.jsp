@@ -402,12 +402,12 @@
                 </div>
                 <div class="input_wrap">
                     <label for="latitude">Latitude</label>
-                    <div id="latitude" class="location_field"></div>
+                    <input id="latitude" class="location_field"  name="latitude" value="latitude">
                 </div>
 
                 <div class="input_wrap">
                     <label for="longitude">Longitude</label>
-                    <div id="longitude" class="location_field"></div>
+                    <input id="longitude" class="location_field"  name="longitude" value="longitude">
                 </div>
 
                 <div class="input_wrap same_line">
