@@ -148,7 +148,7 @@
     </div>
   </div>
 
-  <p class="footer__copy">&#169; 2024 Team Everest. Kathfest Hackathon. All right reserved</p>
+  <p class="footer__copy">&#169; 2024 Team Everest. BPC Hackathon. All right reserved</p>
 </footer>
 
 <!--========== SCROLL REVEAL ==========-->
