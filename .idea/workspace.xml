@@ -11,8 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d45da55e-a683-4d6e-a70d-de6a6b325113" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/openpark.sql" beforeDir="false" afterPath="$PROJECT_DIR$/openpark.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/AdminLogin3.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/AdminLogin3.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Model/SensorData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/Slots.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/map.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/script/mapscript.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +37,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
@@ -40,6 +50,10 @@
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="ProjectErrors" />
   </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 8
+}]]></component>
   <component name="ProjectId" id="2cOnAaeSLfUQlcISmHpMMHthFD3" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -47,11 +61,15 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "BackendB",
+    "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/Acer/IdeaProjects/OPENPARK",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "settings.editor.selected.configurable": "MavenSettings",
     "vue.rearranger.settings.migration": "true"
@@ -59,6 +77,7 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="Tomcat 8.5.87" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.87" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="37cae5b9-e8b2-4949-9172-aafa37fbc09c" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="OPENPARK:war exploded">
@@ -156,6 +175,7 @@
       <option name="presentableId" value="Default" />
       <updated>1707991350791</updated>
       <workItem from="1707991351765" duration="74000" />
+      <workItem from="1708032390134" duration="771000" />
     </task>
     <servers />
   </component>

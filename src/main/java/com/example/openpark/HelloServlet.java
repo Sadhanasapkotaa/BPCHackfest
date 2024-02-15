@@ -37,6 +37,17 @@ public class HelloServlet extends HttpServlet {
         resp.setContentType("text/html");
         String page = req.getParameter("page");
 
+        if(page.equalsIgnoreCase("ParkingSlot")){
+
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("Slots.jsp");
+            requestDispatcher.forward(req, resp);
+        }
+
+//        if(page.equalsIgnoreCase("OpenMap")){
+//            RequestDispatcher requestDispatcher = req.getRequestDispatcher("map.jsp");
+//            requestDispatcher.forward(req, resp);
+//        }
+
         if(page.equalsIgnoreCase("adminLogout")){
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
             requestDispatcher.forward(req, resp);
