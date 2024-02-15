@@ -2,47 +2,6 @@
 <html>
 <head>
     <title>Slots</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-        }
-
-        .container-wrapper {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-gap: 20px;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            background-color: #f0f0f0;
-            border-radius: 5px;
-        }
-
-        .box {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            grid-gap: 10px;
-            text-align: center;
-            padding: 10px;
-        }
-
-        .sub-box {
-            background-color: #ddd;
-            padding: 5px;
-            text-align: center;
-            border-radius: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .container-wrapper {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 </head>
 <body>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -56,9 +15,23 @@
                 <div class="sub-box">4</div>
             </div>
         </div>
-<%--        <c:if test="${loop.index % 3 == 0 && not loop.last}">--%>
-<%--            <div style="clear: both;"></div>--%>
-<%--        </c:if>--%>
+        <%-- Start of scriptlet --%>
+        <c:choose>
+            <c:when test="${sd.status eq 'full'}">
+                <style>
+                    .container {
+                        background-color: red;
+                    }
+                </style>
+            </c:when>
+            <c:otherwise>
+                <style>
+                    .container {
+                        background-color: #00ff00; /* your default color when status is not full */
+                    }
+                </style>
+            </c:otherwise>
+        </c:choose>
     </c:forEach>
 </div>
 </body>

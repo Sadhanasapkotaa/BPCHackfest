@@ -12,9 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d45da55e-a683-4d6e-a70d-de6a6b325113" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/SensorData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/SensorData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/ParkingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/ParkingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Slots.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Slots.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -172,7 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1707991350791</updated>
       <workItem from="1707991351765" duration="74000" />
-      <workItem from="1708032390134" duration="5964000" />
+      <workItem from="1708032390134" duration="7640000" />
     </task>
     <servers />
   </component>
