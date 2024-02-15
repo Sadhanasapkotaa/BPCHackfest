@@ -187,5 +187,14 @@
   <div id="successMessage" class="hidden">
     <p style="color: green;">Slot available! <button id="getQrButton">Get QR Code</button></p>
   </div>
+  <script>
+    var map = L.map("map");
+    var userMarker = L.marker([0, 0]).addTo(map); // Initialize with a default location
+    var marker, circle;
+    var routingControl;
+    var zoomed = false;
+
+    map.setView([51.505, -0.09], 13);
+    </script>
 </body>
 </html>
