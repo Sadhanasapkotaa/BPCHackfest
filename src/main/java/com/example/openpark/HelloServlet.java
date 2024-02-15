@@ -2,6 +2,7 @@ package com.example.openpark;
 
 import java.io.*;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
@@ -25,6 +26,11 @@ public class HelloServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
         String page = req.getParameter("page");
+
+        if(page.equalsIgnoreCase("")){
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
+            requestDispatcher.forward(req, resp);
+        }
     }
 
     public void destroy() {
