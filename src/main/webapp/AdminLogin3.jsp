@@ -400,7 +400,6 @@
                     <input type="text" name="idnumber" class="input" id="idnumber" required>
                     <br>
                 </div>
-                <button type="button" id="getLocationBtn">Get Location</button>
                 <div class="input_wrap">
                     <label for="latitude">Latitude</label>
                     <div id="latitude" class="location_field"></div>
