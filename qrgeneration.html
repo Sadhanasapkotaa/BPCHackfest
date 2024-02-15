@@ -24,14 +24,7 @@
       <div class="form-horizontal">
         <div class="form-group">
           <label class="control-label col-sm-2" for="content">Content:</label>
-          <div class="col-sm-10">
-            <input
-              type="text"
-              class="form-control"
-              id="content"
-              placeholder="Enter content"
-            />
-          </div>
+          <div class="col-sm-10"></div>
         </div>
         <div class="form-group">
           <div class="col-sm-offset-2 col-sm-10">
@@ -45,16 +38,46 @@
   </body>
 
   <script>
-    function htmlEncode(value) {
-      return $("<div/>").text(value).html();
-    }
+    const id = 2;
+    const jsondata = [
+      {
+        id: 1,
+        name: "T-Shirt",
+        category: "Clothing",
+        price: 20,
+        quantity: null,
+      },
+      {
+        id: 2,
+        name: "Smartphone",
+        category: "Electronics",
+        price: 500,
+        quantity: null,
+      },
+      {
+        id: 12,
+        name: "Headphones",
+        category: "Electronics",
+        price: 50,
+        quantity: null,
+      },
+    ];
 
+    // Filter the jsondata array to get items with id equal to 12
+    const selectedData = jsondata.filter((item) => item.id === id);
+
+    const selectedDataString = JSON.stringify(selectedData);
+  </script>
+  <script>
+    function htmlEncode(selectedDataString) {
+      return $("<div/>").text(selectedDataString).html();
+    }
     $(function () {
       $("#generate").click(function () {
         $(".qr-code").attr(
           "src",
           "https://chart.googleapis.com/chart?cht=qr&chl=" +
-            htmlEncode($("#content").val()) +
+            htmlEncode(selectedDataString) +
             "&chs=160x160&chld=L|0"
         );
       });
