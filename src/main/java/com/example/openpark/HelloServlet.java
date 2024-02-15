@@ -117,9 +117,15 @@ public class HelloServlet extends HttpServlet {
             System.out.println("Login successfull");
 
 
-            List<Admin> adminList = new ParkingService().getAdminReq();
+            List<Admin> adminList = new ParkingService().mergeTableNo();
             req.setAttribute("admin", admin);
             req.setAttribute("adminList", adminList);
+
+            Admin admin1 = new Admin();
+
+            List<Admin> adminList1 = new ParkingService().mergeTableYes();
+            req.setAttribute("admin1", admin1);
+            req.setAttribute("adminList1", adminList1);
 
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("superAdminDash.jsp");
             requestDispatcher.forward(req, resp);
@@ -355,13 +361,13 @@ public class HelloServlet extends HttpServlet {
             //Admin login
             if (email.equalsIgnoreCase("admin@gmail.com") && password.equalsIgnoreCase(superAdminPassword)) {
                 Admin admin = new Admin();
-                List<Admin> adminList = new ParkingService().getAdminReq();
+                List<Admin> adminList = new ParkingService().mergeTableNo();
                 req.setAttribute("admin", admin);
                 req.setAttribute("adminList", adminList);
 
                 Admin admin1 = new Admin();
 
-                List<Admin> adminList1 = new ParkingService().mergeTable();
+                List<Admin> adminList1 = new ParkingService().mergeTableYes();
                 req.setAttribute("admin1", admin1);
                 req.setAttribute("adminList1", adminList1);
 

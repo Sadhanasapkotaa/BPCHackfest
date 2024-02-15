@@ -140,7 +140,7 @@ public class ParkingService {
         return adminList;
     }
 
-    public List<Admin> mergeTable(){
+    public List<Admin> mergeTableYes(){
         ArrayList<Admin> adminList1 = new ArrayList<>();
         String query = "select * from admindetails2 INNER JOIN admindetails on admindetails.email=admindetails2.email where admindetails.access='yes' LIMIT 0, 25";
         PreparedStatement preparedStatement = new DBConnection().getStatement(query);
@@ -161,6 +161,54 @@ public class ParkingService {
             e.printStackTrace();
         }
         return adminList1;
+    }
+
+
+    public List<Admin> deleteMergeTableEmail(){
+        ArrayList<Admin> adminList = new ArrayList<>();
+        String query = "select * from admindetails2 INNER JOIN admindetails on admindetails.email=admindetails2.email where admindetails.access='no' LIMIT 0, 25";
+        PreparedStatement preparedStatement = new DBConnection().getStatement(query);
+        try{
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+                Admin admin = new Admin();
+                admin.setFullName(resultSet.getString("fullname"));
+                admin.setEmail(resultSet.getString("email"));
+                admin.setPhoneNumber(resultSet.getString("phone"));
+                admin.setIdNumber(resultSet.getString("idnumber"));
+                admin.setDocument(resultSet.getString("document"));
+                adminList.add(admin);
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return adminList;
+    }
+
+
+    public List<Admin> mergeTableNo(){
+        ArrayList<Admin> adminList = new ArrayList<>();
+        String query = "select * from admindetails2 INNER JOIN admindetails on admindetails.email=admindetails2.email where admindetails.access='no' LIMIT 0, 25";
+        PreparedStatement preparedStatement = new DBConnection().getStatement(query);
+        try{
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+                Admin admin = new Admin();
+                admin.setFullName(resultSet.getString("fullname"));
+                admin.setEmail(resultSet.getString("email"));
+                admin.setPhoneNumber(resultSet.getString("phone"));
+                admin.setIdNumber(resultSet.getString("idnumber"));
+                admin.setDocument(resultSet.getString("document"));
+                adminList.add(admin);
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return adminList;
     }
 
 

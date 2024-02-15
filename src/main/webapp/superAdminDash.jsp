@@ -251,7 +251,7 @@
 
                 <div class="card shadow border-0 mb-7">
                     <div class="card-header">
-                        <h5 class="mb-0">Applicants</h5>
+                        <h5 class="mb-0">Approved Applicants</h5>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover table-nowrap">
