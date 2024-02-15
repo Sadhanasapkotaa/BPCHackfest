@@ -27,10 +27,11 @@ public class HelloServlet extends HttpServlet {
         resp.setContentType("text/html");
         String page = req.getParameter("page");
 
-        if(page.equalsIgnoreCase("")){
+        if(page.equalsIgnoreCase("adminLogout")){
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
             requestDispatcher.forward(req, resp);
         }
+
     }
 
     public void destroy() {
