@@ -308,7 +308,7 @@ public class HelloServlet extends HttpServlet {
 
         if (page.equalsIgnoreCase("searchLocation")) {
 
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("map.jsp");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("searchMap.jsp");
             requestDispatcher.forward(req, resp);
         }
 
@@ -342,7 +342,7 @@ public class HelloServlet extends HttpServlet {
 
             new ParkingService().userBooking(dt);
 
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("map.jsp");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("searchMap.jsp");
             requestDispatcher.forward(req, resp);
         }
 
