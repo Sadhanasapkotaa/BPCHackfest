@@ -16,3 +16,30 @@
         crossorigin=""
       ></script>
       <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    </head>
+
+    <body>
+      <h1>Map of available parking</h1>
+
+      <!-- Overall container -->
+
+      <div class="container">
+        <!-- Map container -->
+
+        <div id="map"></div>
+
+        <!-- Sliding panel with search bar and nearby places list inside -->
+
+        <div class="panel" id="infoPanel">
+          <div class="panel-header">Place Details</div>
+
+          <div class="panel-content" id="infoContent">
+            <!-- Place details will be populated here -->
+
+            <div class="search-container">
+              <input type="text" id="searchInput" placeholder="Enter location" />
+
+              <button id="searchButton">Search</button>
+
+              <button id="clearButton">Clear</button>
+            </div>
