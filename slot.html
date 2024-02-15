@@ -4,7 +4,38 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Parking Slot Booking</title>
-  <link rel="stylesheet" href="styles.css">
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .parking-lot {
+    display: flex;
+  }
+  
+  .slot {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    border: 2px solid #000;
+    position: relative;
+  }
+  
+  .available {
+    width: 100%;
+    height: 100%;
+    background-color: green;
+    opacity: 0.3;
+  }
+  
+  .slot-info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+    </style>
 </head>
 <body>
   <div class="parking-lot">
@@ -25,7 +56,7 @@
       <div class="slot-info">Slot 4</div>
     </div>
   </div>
-  <script src="script.js"></script>
+  
 </body>
 </html>
 
