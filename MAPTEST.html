@@ -271,7 +271,19 @@
                                   Time Frame: ${place.timeFrame}<br>
                                   Slots Available: ${place.slotsAvailable}`;
 
+ // "Book Now" button
+ const bookNowButton = document.createElement("button");
+    bookNowButton.textContent = "Book Now";
+    bookNowButton.addEventListener("click", function () {
+      // Display the success message
+      const successMessage = document.getElementById("successMessage");
+      successMessage.classList.remove("hidden");
 
+      // You can add additional logic here if needed
+
+      // Scroll to the success message
+      successMessage.scrollIntoView({ behavior: "smooth" });
+    });
     </script>
 </body>
 </html>
