@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!--========== BOX ICONS ==========-->
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!--========== CSS ==========-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/userSearch.css" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <style>
+      .qr-code {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="text-center">
+        <img
+          src="https://chart.googleapis.com/chart?cht=qr&chl=Hello+World&chs=160x160&chld=L|0"
+          class="qr-code img-thumbnail img-responsive"
+        />
+      </div>
+
+      <div class="form-horizontal">
+        <div class="form-group">
+          <div class="col-sm-10"></div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="button" class="button" id="generate">Generate</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const id = 2;
+    const jsondata = [
+      {
+        id: 1,
+        name: "T-Shirt",
+        category: "Clothing",
+        price: 20,
+        quantity: null,
+      },
+      {
+        id: 2,
+        name: "Smartphone",
+        category: "Electronics",
+        price: 500,
+        quantity: null,
+      },
+      {
+        id: 12,
+        name: "Headphones",
+        category: "Electronics",
+        price: 50,
+        quantity: null,
+      },
+    ];
+
+    // Filter the jsondata array to get items with id equal to 12
+    const selectedData = jsondata.filter((item) => item.id === id);
+
+    const selectedDataString = JSON.stringify(selectedData);
+  </script>
+  <script>
+    function htmlEncode(selectedDataString) {
+      return $("<div/>").text(selectedDataString).html();
+    }
+    $(function () {
+      $("#generate").click(function () {
+        $(".qr-code")
+          .css("display", "block")
+          .attr(
+            "src",
+            "https://chart.googleapis.com/chart?cht=qr&chl=" +
+              htmlEncode(selectedDataString) +
+              "&chs=160x160&chld=L|0"
+          );
+      });
+    });
+  </script>
+  <footer class="footer section">
+    <div class="footer__container bd-container bd-grid">
+      <div class="footer__content">
+        <h3 class="footer__title">
+          <a href="#" class="footer__logo">OPEN<b>PARK</b></a>
+        </h3>
+        <p class="footer__description">
+          Looking for<br />
+          parking space?
+        </p>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Our Services</h3>
+        <ul>
+          <li><a href="#" class="footer__link">Pricing </a></li>
+          <li><a href="#" class="footer__link">Discounts</a></li>
+          <li><a href="#" class="footer__link">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Our Company</h3>
+        <ul>
+          <li><a href="#" class="footer__link">Blog</a></li>
+          <li><a href="#" class="footer__link">About us</a></li>
+          <li><a href="#" class="footer__link">Our mision</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Social</h3>
+        <a href="#" class="footer__social"
+          ><i class="bx bxl-facebook-circle"></i
+        ></a>
+        <a href="#" class="footer__social"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="footer__social"
+          ><i class="bx bxl-instagram-alt"></i
+        ></a>
+      </div>
+    </div>
+
+    <p class="footer__copy">
+      &#169; 2024 Team Everest. BPC Hackathon. All right reserved
+    </p>
+  </footer>
+</html>
