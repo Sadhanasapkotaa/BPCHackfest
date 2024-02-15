@@ -119,7 +119,7 @@ public class ParkingService {
 
     public List<Admin> getAdminReq(){
         ArrayList<Admin> adminList = new ArrayList<>();
-        String query = "select * from admindetails2";
+        String query = "select * from admindetails2 where access='no'";
         PreparedStatement preparedStatement = new DBConnection().getStatement(query);
         try{
             ResultSet resultSet = preparedStatement.executeQuery();
