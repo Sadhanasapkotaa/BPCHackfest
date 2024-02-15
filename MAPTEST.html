@@ -228,6 +228,31 @@
                 L.latLng(userMarker.getLatLng()), // User's location
                 L.latLng(lat, lng), // Searched location
               ],
+              routeWhileDragging: true,
+              lineOptions: {
+                styles: [{ color: "#0000FF", opacity: 0.7, weight: 5 }],
+              },
+            }).addTo(map);
+          } else {
+            routingControl.setWaypoints([
+              L.latLng(userMarker.getLatLng()), // User's location
+              L.latLng(lat, lng), // Searched location
+            ]);
+          }
+
+          if (!zoomed) {
+            zoomed = map.fitBounds(userMarker.getBounds());
+          }
+        }
+
+        function error(err) {
+          if (err === 1) {
+            alert("Please allow geolocation access");
+          } else {
+            alert("Cannot get the current location");
+          }
+        }
+
     </script>
 </body>
 </html>
