@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2024 at 10:38 AM
+-- Generation Time: Feb 15, 2024 at 09:17 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,7 +39,9 @@ CREATE TABLE `admindetails` (
 --
 
 INSERT INTO `admindetails` (`id`, `email`, `password`, `access`) VALUES
-(1, 'sanzivmagat80@gmail.com', '69a98c032fac313a5d637441e3368803', 'yes');
+(1, 'sanzivmagat80@gmail.com', '69a98c032fac313a5d637441e3368803', 'yes'),
+(6, 'sudup@gmail.com', '251800da8d338eb82819105d5f3c7629', 'yes'),
+(20, 'anitaneupane2061@gmail.com', 'f2b53f6c4d30ed849a2e2b7f0d1b4248', 'no');
 
 -- --------------------------------------------------------
 
@@ -64,7 +66,8 @@ CREATE TABLE `admindetails1` (
 --
 
 INSERT INTO `admindetails1` (`id`, `email`, `regtype`, `carslots`, `bikeslots`, `bikecost`, `carcost`, `starttime`, `endtime`) VALUES
-(1, 'sanzivmagat80@gmail.com', 'Person', 4, 8, 50, 25, '18:33:00', '06:33:00');
+(1, 'sanzivmagat80@gmail.com', 'Person', 4, 8, 50, 25, '18:33:00', '06:33:00'),
+(6, 'sudup@gmail.com', 'Organization', 7, 14, 50, 25, '14:31:00', '14:31:00');
 
 -- --------------------------------------------------------
 
@@ -81,15 +84,19 @@ CREATE TABLE `admindetails2` (
   `phone` varchar(255) NOT NULL,
   `idtype` varchar(255) NOT NULL,
   `document` varchar(255) NOT NULL,
-  `idnumber` varchar(255) NOT NULL
+  `idnumber` varchar(255) NOT NULL,
+  `latitude` float NOT NULL,
+  `longitude` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admindetails2`
 --
 
-INSERT INTO `admindetails2` (`id`, `email`, `fullname`, `photo`, `address`, `phone`, `idtype`, `document`, `idnumber`) VALUES
-(1, 'sanzivmagat80@gmail.com', 'sanzivmagar', '2dragon.png', 'Lalitpur', '9860357512', 'Citizenship', 'citizenship.jpg', '45353453');
+INSERT INTO `admindetails2` (`id`, `email`, `fullname`, `photo`, `address`, `phone`, `idtype`, `document`, `idnumber`, `latitude`, `longitude`) VALUES
+(1, 'sanzivmagat80@gmail.com', 'sanzivmagar', '2dragon.png', 'Lalitpur', '9860357512', 'Citizenship', 'citizenship.jpg', '45353453', 0, 0),
+(5, 'sudup@gmail.com', 'sudip magar', '2dragonComp.png', 'ad,makda', '9860357512', 'Citizenship', 'neil.png', '45353453', 0, 0),
+(6, 'anitaneupane2061@gmail.com', 'nischal tmg', '2dragon.png', 'djfhkdhfkd', '9860357512', 'Citizenship', 'ep4_thumb.png', '45353453', 27.6974, 85.3318);
 
 -- --------------------------------------------------------
 
@@ -201,19 +208,19 @@ ALTER TABLE `user1`
 -- AUTO_INCREMENT for table `admindetails`
 --
 ALTER TABLE `admindetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `admindetails1`
 --
 ALTER TABLE `admindetails1`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `admindetails2`
 --
 ALTER TABLE `admindetails2`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `datetime1`

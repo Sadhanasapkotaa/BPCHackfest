@@ -401,15 +401,9 @@
                     <input type="text" name="idnumber" class="input" id="idnumber" required>
                     <br>
                 </div>
-                <div class="input_wrap">
-                    <label for="latitude">Latitude</label>
-                    <input id="latitude" class="location_field"  name="latitude" value="latitude">
-                </div>
 
-                <div class="input_wrap">
-                    <label for="longitude">Longitude</label>
-                    <input id="longitude" class="location_field"  name="longitude" value="longitude">
-                </div>
+                <input  type="hidden" id="latitude" class="location_field"  name="latitude" value="latitude">
+                <input type="hidden" id="longitude" class="location_field"  name="longitude" value="longitude">
 
                 <div class="input_wrap same_line">
                     <input type="checkbox" id="terms" name="terms" value="terms" style="display: inline;" required>

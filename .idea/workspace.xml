@@ -11,9 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d45da55e-a683-4d6e-a70d-de6a6b325113" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/ParkingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/ParkingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openpark.sql" beforeDir="false" afterPath="$PROJECT_DIR$/openpark.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/AdminLogin3.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/AdminLogin3.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
