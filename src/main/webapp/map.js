@@ -26,44 +26,44 @@ if ('geolocation' in navigator) {
     console.log('Geolocation is not supported by your browser');
 }
 
+document.getElementById('searchButton').addEventListener('click', async () => {
+    const query = searchInput.value;
+    console.log('Search query:', query); // Check if query is being captured correctly
+    try {
+        // Simulate fetching data from the server
+        const responseData = [
+            { displayName: 'Bhaktapur', latitude: 27.617, longitude: 85.4296 },
+            { displayName: 'Lalitpur', latitude: 27.6669, longitude: 85.3126 },
+            { displayName: 'Lalitpur', latitude: 27.6663, longitude: 85.333}
+        ];
+
+        // Set the result list using the manually defined data
+        setResultList(responseData);
+    } catch (error) {
+        console.error('Error fetching locations:', error);
+    }
+});
+
 // document.getElementById('search-button').addEventListener('click', async () => {
 //     const query = searchInput.value;
 //     console.log('Search query:', query); // Check if query is being captured correctly
 //     try {
-//         // Simulate fetching data from the server
-//         const responseData = [
-//             { displayName: 'Bhaktapur', lat: 27.617, lon: 85.4296 },
-//             { displayName: 'Lalitpur', lat: 27.6669, lon: 85.3126 },
-//             { displayName: 'Lalitpur', lat: 27.6663, lon: 85.333}
-//         ];
+//         // Fetch the JSON data from the test.json file
+//         const testDataResponse = await fetch('test.json');
 //
-//         // Set the result list using the manually defined data
-//         setResultList(responseData);
+//         if (!testDataResponse.ok) {
+//             throw new Error('Failed to fetch test data');
+//         }
+//         const testData = await testDataResponse.json();
+//
+//         const filteredData = testData.filter(item => item.name.includes(query));
+//
+//         // Set the filtered data as the result list
+//         setResultList(filteredData);
 //     } catch (error) {
-//         console.error('Error fetching locations:', error);
+//         console.error('Error fetching or processing test data:', error);
 //     }
 // });
-
-document.getElementById('search-button').addEventListener('click', async () => {
-    const query = searchInput.value;
-    console.log('Search query:', query); // Check if query is being captured correctly
-    try {
-        // Fetch the JSON data from the test.json file
-        const testDataResponse = await fetch('test.json');
-
-        if (!testDataResponse.ok) {
-            throw new Error('Failed to fetch test data');
-        }
-        const testData = await testDataResponse.json();
-
-        const filteredData = testData.filter(item => item.name.includes(query));
-
-        // Set the filtered data as the result list
-        setResultList(filteredData);
-    } catch (error) {
-        console.error('Error fetching or processing test data:', error);
-    }
-});
 
 
 
