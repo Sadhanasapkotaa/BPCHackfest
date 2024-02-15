@@ -207,6 +207,27 @@
           const lat = pos.coords.latitude;
           const lng = pos.coords.longitude;
           const accuracy = pos.coords.accuracy;
+          if (marker) {
+            map.removeLayer(marker);
+          }
+
+          marker = L.marker([lat, lng]).addTo(map);
+
+          if (!zoomed) {
+            map.setView([lat, lng], 13);
+            zoomed = true;
+          }
+
+          // Update user's marker position
+          userMarker.setLatLng([lat, lng]);
+
+          // Create a routing control and add it to the map
+          if (!routingControl) {
+            routingControl = L.Routing.control({
+              waypoints: [
+                L.latLng(userMarker.getLatLng()), // User's location
+                L.latLng(lat, lng), // Searched location
+              ],
     </script>
 </body>
 </html>
