@@ -1,4 +1,4 @@
-<%--
+<%@ page import="jakarta.servlet.http.HttpSession" %><%--
   Created by IntelliJ IDEA.
   User: sanzi
   Date: 1/2/2024
@@ -105,15 +105,15 @@
                         <br>
                         <button type="button" id="getLocationBtn">Get Location</button>
                     </div>
-<%--                    <div class="input_wrap">--%>
-<%--                        <label for="latitude">Latitude</label>--%>
-<%--                        <div id="latitude" class="location_field"></div>--%>
-<%--                    </div>--%>
+                    <div class="input_wrap">
+                        <label for="latitude">Latitude</label>
+                        <div id="latitude" class="location_field"></div>
+                    </div>
 
-<%--                    <div class="input_wrap">--%>
-<%--                        <label for="longitude">Longitude</label>--%>
-<%--                        <div id="longitude" class="location_field"></div>--%>
-<%--                    </div>--%>
+                    <div class="input_wrap">
+                        <label for="longitude">Longitude</label>
+                        <div id="longitude" class="location_field"></div>
+                    </div>
                     <div class="input_wrap same_line">
                         <input type="checkbox" id="terms" name="terms" value="terms" style="display: inline;" required>
                         <label for="terms"> I agree to the <a>terms and conditions.</a></label><br>
