@@ -234,11 +234,11 @@
                                 <td class="text-end">
                                     <a href="openpark?page=appAdmin&email=${admin.email}"  id="btn" onclick="changeText()" class="btn btn-sm btn-neutral">Approve</a>
 
-                                        <a href="openpark?page=emailDelete&email2=${admin.email}">
-                                            <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
-                                            <i class="bi bi-trash"></i>
-                                            </button>
-                                        </a>
+                                    <a href="openpark?page=emailDelete&email2=${admin.email}">
+                                        <button type="button" class="btn btn-sm btn-square btn-neutral text-danger-hover">
+                                        <i class="bi bi-trash"></i>
+                                        </button>
+                                    </a>
 
                                 </td>
                             </tr>
