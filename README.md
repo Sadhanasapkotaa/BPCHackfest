@@ -1,2 +1,0 @@
-# BPCHackfest
-BPC Hackathon Repository.
