@@ -107,6 +107,8 @@
 
 
                 </div>
+                <br>
+                <br>
                 <div class="btns_wrap">
                     <div class="common_btns form_2_btns">
                         <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span><a href="openpark?page=adminLogin">Back</a></button>

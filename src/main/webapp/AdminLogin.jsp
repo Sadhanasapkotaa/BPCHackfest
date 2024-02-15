@@ -64,6 +64,8 @@
                 </div>
             </div>
         </div>
+        <br>
+        <br>
         <div class="btns_wrap">
             <div class="common_btns form_1_btns">
                 <button type="submit" class="btn_next" > Next <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>

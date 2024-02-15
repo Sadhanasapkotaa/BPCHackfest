@@ -125,6 +125,8 @@
                 </div>
         </div>
     </div>
+    <br>
+    <br>
     <div class="btns_wrap">
         <div class="common_btns form_3_btns">
             <a href="adminform2.html">
