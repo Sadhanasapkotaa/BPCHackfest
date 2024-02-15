@@ -227,7 +227,7 @@ public class ParkingService {
 
     //select booking details
 
-    public void getAllLocations(String searchQuery){
+    public void getQR(){
         String query = "select * from bookingdetails";
         PreparedStatement preparedStatement = new DBConnection().getStatement(query);
         try {

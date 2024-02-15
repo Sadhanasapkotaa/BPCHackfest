@@ -84,7 +84,7 @@
         />
         <h3 class="decoration__title">Four-wheeler Parking</h3>
         <h5> Rs. 100 per hour </h5>
-        <a href="openpark?page=userSearchLocation" class="button button-link">Choose</a>
+        <a href="openpark?page=qrGenerate" class="button button-link"> generate QR</a>
 
       </div>
     </div>

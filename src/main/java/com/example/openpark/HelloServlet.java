@@ -392,6 +392,16 @@ public class HelloServlet extends HttpServlet {
         }
 
 
+        if(page.equalsIgnoreCase("qrGenerate")){
+            ParkingService service = new ParkingService();
+            service.getQR();
+
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("qr.jsp");
+            requestDispatcher.forward(req, resp);
+        }
+
+
+
     }
 
     public void destroy() {
