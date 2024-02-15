@@ -250,6 +250,7 @@ public class ParkingService {
                 jsonObject.put("name", name);
                 jsonObject.put("startTime", startTime);
                 jsonObject.put("endTime", endTime);
+                jsonObject.put("vehicleType", vehicleType);
 
                 // Add the JSON object to the JSON array
                 jsonArray.add(jsonObject);
@@ -257,7 +258,7 @@ public class ParkingService {
 
             }
 
-            FileWriter writer = new FileWriter("C:/Users/Acer/IdeaProjects/Geocoding/src/main/webapp/test.json");
+            FileWriter writer = new FileWriter("C://Users//Acer//IdeaProjects//OPENPARK//src//main//webapp//test.json");
             System.out.println(jsonArray.toString());
             writer.write(jsonArray.toString());
             System.out.println("JSON data has been written to file.");
