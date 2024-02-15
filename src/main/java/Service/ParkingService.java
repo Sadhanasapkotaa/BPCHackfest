@@ -4,7 +4,11 @@ import DBConnection.DBConnection;
 import Model.Admin;
 import Model.DateTime;
 import Model.User;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -114,8 +118,9 @@ public class ParkingService {
         }catch (SQLException e){
             e.printStackTrace();
         }
-
     }
+
+
 
     public List<Admin> getAdminReq(){
         ArrayList<Admin> adminList = new ArrayList<>();
@@ -220,6 +225,50 @@ public class ParkingService {
         return hasParked;
     }
 
+    //select booking details
+
+    public void getAllLocations(String searchQuery){
+        String query = "select * from bookingdetails";
+        PreparedStatement preparedStatement = new DBConnection().getStatement(query);
+        try {
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            JSONArray jsonArray = new JSONArray();
+
+            while (resultSet.next()) {
+                int bookingid = resultSet.getInt("bookingid");
+                String name = resultSet.getString("name");
+                Time startTime = resultSet.getTime("starttime");
+                Time endTime = resultSet.getTime("endTime");
+                String vehicleType = resultSet.getString("vehicleType");
+
+
+
+                ////////////////////////////////////////
+                JSONObject jsonObject = new JSONObject();
+                jsonObject.put("bookingid", bookingid);
+                jsonObject.put("name", name);
+                jsonObject.put("startTime", startTime);
+                jsonObject.put("endTime", endTime);
+
+                // Add the JSON object to the JSON array
+                jsonArray.add(jsonObject);
+
+
+            }
+
+            FileWriter writer = new FileWriter("C:/Users/Acer/IdeaProjects/Geocoding/src/main/webapp/test.json");
+            System.out.println(jsonArray.toString());
+            writer.write(jsonArray.toString());
+            System.out.println("JSON data has been written to file.");
+            writer.close();
+
+
+        } catch (SQLException | IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
 
 }
