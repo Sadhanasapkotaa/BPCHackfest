@@ -34,7 +34,7 @@ document.getElementById('searchButton').addEventListener('click', () => {
             { displayName: 'Bhaktapur', latitude: 27.617, longitude: 85.4296 },
             { displayName: 'Lalitpur', latitude: 27.6669, longitude: 85.3126 },
             { displayName: 'Lalitpur', latitude: 27.6663, longitude: 85.333 }
-            // Add more data as needed
+
         ];
 
         // Set the result list using all the data
@@ -80,7 +80,7 @@ function setResultList(parsedResult) {
     for (const result of parsedResult) {
         const li = document.createElement('li');
         li.classList.add('list-group-item', 'list-group-item-action');
-        li.innerHTML = result.name; // Display name of the location in the listx
+        li.innerHTML = result.name;
         li.addEventListener('click', (event) => {
             for(const child of resultList.children) {
                 child.classList.remove('active');
