@@ -10,9 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d45da55e-a683-4d6e-a70d-de6a6b325113" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/ParkingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/ParkingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userChooseDevice.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userChooseDevice.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/qr.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/qr.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Jsp File" />
         <option value="JavaScript File" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -170,7 +168,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1707991350791</updated>
-      <workItem from="1707991351765" duration="19697000" />
+      <workItem from="1707991351765" duration="20028000" />
     </task>
     <servers />
   </component>
