@@ -375,6 +375,7 @@
 
         // Define the bounding box coordinates for Kathmandu Valley
         const birgunjValleyBounds = "85.162,27.010,85.374,27.158";
+
         // Use the Nominatim geocoding service to search for the location within Kathmandu Valley
         fetch(
             `https://nominatim.openstreetmap.org/search?format=json&q=${query}&viewbox=${birgunjValleyBounds}`
