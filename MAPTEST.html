@@ -252,6 +252,25 @@
             alert("Cannot get the current location");
           }
         }
+      }
+        }
+
+        // Function to display nearby places in the panel
+  // Function to display detailed nearby places in the panel
+  function displayNearbyPlaces(places) {
+  const nearbyPlacesList = document.getElementById("nearbyPlacesList");
+  nearbyPlacesList.innerHTML = ""; // Clear previous list items
+
+  places.forEach((place, index) => {
+    const placeItem = document.createElement("div");
+    placeItem.className = "nearby-place";
+
+    // Display detailed information
+    const detailsContainer = document.createElement("div");
+    detailsContainer.innerHTML = `<strong>${place.name}</strong><br>
+                                  Time Frame: ${place.timeFrame}<br>
+                                  Slots Available: ${place.slotsAvailable}`;
+
 
     </script>
 </body>
