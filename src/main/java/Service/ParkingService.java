@@ -172,6 +172,7 @@ public class ParkingService {
                     "WHERE admindetails.email = ?";
             PreparedStatement preparedStatement = new DBConnection().getStatement(query);
             preparedStatement.setString(1, email);
+            preparedStatement.executeUpdate();
 
         } catch (SQLException e) {
             System.out.println("Error deleting records: " + e.getMessage());
