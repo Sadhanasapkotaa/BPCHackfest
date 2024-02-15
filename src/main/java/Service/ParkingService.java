@@ -164,28 +164,20 @@ public class ParkingService {
     }
 
 
-    public List<Admin> deleteMergeTableEmail(){
-        ArrayList<Admin> adminList = new ArrayList<>();
-        String query = "select * from admindetails2 INNER JOIN admindetails on admindetails.email=admindetails2.email where admindetails.access='no' LIMIT 0, 25";
-        PreparedStatement preparedStatement = new DBConnection().getStatement(query);
-        try{
-            ResultSet resultSet = preparedStatement.executeQuery();
+    public void deleteMergeTableByEmail(String email) {
+        try {
+            String query = "DELETE admindetails, admindetails1, admindetails2 FROM admindetails " +
+                    "JOIN admindetails1 ON admindetails.email = admindetails1.email " +
+                    "JOIN admindetails2 ON admindetails.email = admindetails2.email " +
+                    "WHERE admindetails.email = ?";
+            PreparedStatement preparedStatement = new DBConnection().getStatement(query);
+            preparedStatement.setString(1, email);
 
-            while(resultSet.next()){
-                Admin admin = new Admin();
-                admin.setFullName(resultSet.getString("fullname"));
-                admin.setEmail(resultSet.getString("email"));
-                admin.setPhoneNumber(resultSet.getString("phone"));
-                admin.setIdNumber(resultSet.getString("idnumber"));
-                admin.setDocument(resultSet.getString("document"));
-                adminList.add(admin);
-            }
-
-        }catch (SQLException e){
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("Error deleting records: " + e.getMessage());
         }
-        return adminList;
     }
+
 
 
     public List<Admin> mergeTableNo(){

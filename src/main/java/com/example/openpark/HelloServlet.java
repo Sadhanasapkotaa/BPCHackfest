@@ -133,6 +133,27 @@ public class HelloServlet extends HttpServlet {
 
         }
 
+        if(page.equalsIgnoreCase("emailDelete")){
+            String email = req.getParameter("email2");
+
+            new ParkingService().deleteMergeTableByEmail(email);
+
+
+
+            Admin admin = new Admin();
+            List<Admin> adminList = new ParkingService().mergeTableNo();
+            req.setAttribute("admin", admin);
+            req.setAttribute("adminList", adminList);
+
+            Admin admin1 = new Admin();
+            List<Admin> adminList1 = new ParkingService().mergeTableYes();
+            req.setAttribute("admin1", admin1);
+            req.setAttribute("adminList1", adminList1);
+
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("superAdminDash.jsp");
+            requestDispatcher.forward(req, resp);
+        }
+
 
         if (page.equalsIgnoreCase("admindetails")){
             HttpSession session = req.getSession();
