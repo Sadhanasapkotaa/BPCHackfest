@@ -300,7 +300,7 @@
     </div>
 
     <p class="footer__copy">
-        &#169; 2024 Team Everest. Kathford Hackathon. All right reserved
+        &#169; 2024 Team Everest. BPC HACKFEST 2024. All right reserved
     </p>
 </footer>
 
