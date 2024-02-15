@@ -290,6 +290,8 @@ public class HelloServlet extends HttpServlet {
                     e.printStackTrace();
                 }
                 admin.setIdNumber(req.getParameter("idnumber"));
+                admin.setLatitude(Float.parseFloat(req.getParameter("latitude")));
+                admin.setLongitude(Float.parseFloat(req.getParameter("longitude")));
 
                 new ParkingService().adminSignUp3(admin);
                 System.out.println("admindetails3 successfully registered");

@@ -350,6 +350,7 @@
             </li>
         </ul>
     </div>
+<form action="openpark?page=admindetails3" method="post" enctype="multipart/form-data" >
     <div class="form_wrap">
         <div class="form_3 data_info">
             <h2>Owner's KYC</h2>
@@ -427,9 +428,10 @@
             <a href="adminform2.html">
                 <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Back</button>
             </a>
-            <button type="button" class="btn_done">Done</button>
+            <button type="submit" class="btn_done">Done</button>
         </div>
     </div>
+</form>
 </div>
 
 <div class="modal_wrapper">
@@ -439,6 +441,7 @@
         <p>You have successfully completed the process.</p>
     </div>
 </div>
+
 
 
 

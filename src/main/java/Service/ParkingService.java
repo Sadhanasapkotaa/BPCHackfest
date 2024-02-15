@@ -79,7 +79,7 @@ public class ParkingService {
     }
 
     public void adminSignUp2(Admin admin){
-        String query = "insert into admindetails1(email , regtype, carslots, bikeslots, bikecost, carcost, starttime, endtime)" + " values(?,?,?,?,?,?,?,?)";
+        String query = "insert into admindetails1(email , regtype, carslots, bikeslots, bikecost, carcost, starttime, endtime)" + " values(?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement = new DBConnection().getStatement(query);
         try{
             preparedStatement.setString(1,admin.getEmail());
@@ -91,6 +91,7 @@ public class ParkingService {
             preparedStatement.setTime(7, Time.valueOf(admin.getStratTime()));
             preparedStatement.setTime(8, Time.valueOf(admin.getEndTime()));
 
+
             preparedStatement.execute();
         }catch (SQLException e){
             e.printStackTrace();
@@ -99,7 +100,7 @@ public class ParkingService {
     }
 
     public void adminSignUp3(Admin admin){
-        String query = "insert into admindetails2(email , fullname, photo, address, phone, idtype, document, idnumber )" + " values(?,?,?,?,?,?,?,?)";
+        String query = "insert into admindetails2(email , fullname, photo, address, phone, idtype, document, idnumber, latitude, longitude )" + " values(?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement = new DBConnection().getStatement(query);
         try{
             preparedStatement.setString(1,admin.getEmail());
@@ -110,6 +111,11 @@ public class ParkingService {
             preparedStatement.setString(6, admin.getIdType());
             preparedStatement.setString(7, admin.getDocument());
             preparedStatement.setString(8, admin.getIdNumber());
+            preparedStatement.setFloat(9, admin.getLatitude());
+            preparedStatement.setFloat(10,admin.getLongitude());
+
+
+
             preparedStatement.execute();
         }catch (SQLException e){
             e.printStackTrace();
