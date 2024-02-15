@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Parking Slot Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    
+    .parking-lot {
+      display: flex;
+    }
+    
+    .slot {
+      width: 120px;
+      height: 120px;
+      margin: 10px;
+      border: 2px solid #000;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+    }
+    
+    .available {
+      width: 50%;
+      height: 50%;
+      background-color: green;
+      opacity: 0.3;
+    }
+    
+    .slot-info {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  </style>
+</head>
+<body>
+  <div class="parking-lot">
+    <div class="slot" id="slot1">
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="slot-info">Slot 1</div>
+    </div>
+    <div class="slot" id="slot2">
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="slot-info">Slot 2</div>
+    </div>
+    <div class="slot" id="slot3">
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="slot-info">Slot 3</div>
+    </div>
+    <div class="slot" id="slot4">
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="slot-info">Slot 4</div>
+    </div>
+  </div>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const slots = document.querySelectorAll('.slot');
+  
+    slots.forEach(slot => {
+      slot.addEventListener('click', function() {
+        const vehicleType = prompt('Do you want to book this slot for a car or a bike? Enter "car" or "bike".').toLowerCase();
+  
+        if (!slot.classList.contains('booked')) {
+          if (vehicleType === 'car') {
+            const bookedParts = slot.querySelectorAll('.booked').length;
+            if (bookedParts === 0) {
+              slot.querySelectorAll('.available').forEach(part => {
+                part.style.backgroundColor = 'red';
+                part.classList.add('booked');
+              });
+              slot.classList.add('booked');
+              alert('Slot booked for car successfully!');
+            } else {
+              alert('This slot has been partially booked for bikes. Only bikes can be parked here.');
+            }
+          } else if (vehicleType === 'bike') {
+            const availablePart = slot.querySelector('.available:not(.booked)');
+            if (availablePart) {
+              availablePart.style.backgroundColor = 'red';
+              availablePart.classList.add('booked');
+              const bookedParts = slot.querySelectorAll('.booked').length;
+              if (bookedParts === 4) {
+                slot.classList.add('booked');
+              }
+              alert('Slot booked for bike successfully!');
+            } else {
+              alert('There is not enough space for bikes in this slot!');
+            }
+          } else {
+            alert('Invalid vehicle type. Please enter "car" or "bike".');
+          }
+        } else {
+          alert('Slot already booked!');
+        }
+      });
+    });
+  });
+  
+</script>
+</body>
+</html>
