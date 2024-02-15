@@ -89,11 +89,11 @@
                         <input type="text" name="car_cost" class="input" id="car_cost" value="Rs.50" readonly>
                     </div>
 
-                    <div class="input_wrap same_line">
-                        <label for="full_time">24 Hour availability</label><br>
-                        <input type="checkbox" id="full_time" name="full_time" value="full_time" onclick="checkFunction()" required>
+<%--                    <div class="input_wrap same_line">--%>
+<%--                        <label for="full_time">24 Hour availability</label><br>--%>
+<%--                        <input type="checkbox" id="full_time" name="full_time" value="full_time" onclick="checkFunction()" required>--%>
 
-                    </div>
+<%--                    </div>--%>
 
                     <div class="input_wrap" id="startTime">
                         <label for="start_time">Start Time</label><br>
