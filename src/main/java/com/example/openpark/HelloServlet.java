@@ -215,7 +215,7 @@ public class HelloServlet extends HttpServlet {
                 String fileName = part.getSubmittedFileName();
                 System.out.println("the fill name is "+ fileName);
                 admin.setPhoto(part.getSubmittedFileName());
-                String uploadPath = "C:/Users/sanzi/IdeaProjects/OpenPark-/src/main/webapp/assets/userCredientals/" + fileName;
+                String uploadPath = "C:/Users/sanzi/IdeaProjects/OPENPARK/src/main/webapp/assets/userCredientals/" + fileName;
                 try {
                     FileOutputStream fileOutputStream = new FileOutputStream(uploadPath);
                     InputStream inputStream = part.getInputStream();
@@ -237,7 +237,7 @@ public class HelloServlet extends HttpServlet {
                 String fileName1 = part1.getSubmittedFileName();
                 System.out.println("the fill name is "+ fileName1);
                 admin.setDocument(part1.getSubmittedFileName());
-                String uploadPath1 = "C:/Users/sanzi/IdeaProjects/OpenPark-/src/main/webapp/assets/userCredientals/" + fileName1;
+                String uploadPath1 = "C:/Users/sanzi/IdeaProjects/OPENPARK/src/main/webapp/assets/userCredientals/" + fileName1;
 
                 try {
                     FileOutputStream fileOutputStream = new FileOutputStream(uploadPath1);

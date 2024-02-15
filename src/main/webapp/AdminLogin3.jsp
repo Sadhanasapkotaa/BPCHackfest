@@ -1,5 +1,4 @@
-<%@ page import="jakarta.servlet.http.HttpSession" %><%--
-  Created by IntelliJ IDEA.
+ Created by IntelliJ IDEA.
   User: sanzi
   Date: 1/2/2024
   Time: 12:25 PM
@@ -23,7 +22,7 @@
         }
     </style>
     <%
-        HttpSession session1 = request.getSession();
+        HttpSession session1 = (HttpSession) request.getSession();
         String email = (String) session1.getAttribute("email");
     %>
 
