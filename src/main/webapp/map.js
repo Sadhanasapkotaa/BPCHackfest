@@ -26,23 +26,24 @@ if ('geolocation' in navigator) {
     console.log('Geolocation is not supported by your browser');
 }
 
-document.getElementById('searchButton').addEventListener('click', async () => {
+document.getElementById('searchButton').addEventListener('click', () => {
     const query = searchInput.value;
-    console.log('Search query:', query); // Check if query is being captured correctly
     try {
-        // Simulate fetching data from the server
+        // Manually provided data
         const responseData = [
             { displayName: 'Bhaktapur', latitude: 27.617, longitude: 85.4296 },
             { displayName: 'Lalitpur', latitude: 27.6669, longitude: 85.3126 },
-            { displayName: 'Lalitpur', latitude: 27.6663, longitude: 85.333}
+            { displayName: 'Lalitpur', latitude: 27.6663, longitude: 85.333 }
+            // Add more data as needed
         ];
 
-        // Set the result list using the manually defined data
+        // Set the result list using all the data
         setResultList(responseData);
     } catch (error) {
         console.error('Error fetching locations:', error);
     }
 });
+
 
 // document.getElementById('search-button').addEventListener('click', async () => {
 //     const query = searchInput.value;
@@ -79,7 +80,7 @@ function setResultList(parsedResult) {
     for (const result of parsedResult) {
         const li = document.createElement('li');
         li.classList.add('list-group-item', 'list-group-item-action');
-        li.innerHTML = result.name; // Display name of the location in the list
+        li.innerHTML = result.name; // Display name of the location in the listx
         li.addEventListener('click', (event) => {
             for(const child of resultList.children) {
                 child.classList.remove('active');
