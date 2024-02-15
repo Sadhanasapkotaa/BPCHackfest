@@ -8,20 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title> Mapping </title>
-    <link
-            rel="stylesheet"
-            href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-            integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-            crossorigin=""
-    />
-    <script
-            src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    <title>Mapping</title>    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="          crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
             integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-            crossorigin=""
-    ></script>
+            crossorigin=""></script>
     <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
-
     <style>
         /* Updated map size and border styling */
         #map {
@@ -208,6 +199,7 @@
 
     <div id="map"></div>
 
+
     <!-- Sliding panel with search bar and nearby places list inside -->
 
     <div class="panel" id="infoPanel">
@@ -386,7 +378,7 @@
                     const result = data[0];
                     const lat = parseFloat(result.lat);
                     const lon = parseFloat(result.lon);
-
+console.log("success");
                     // Clear existing marker
                     if (marker) {
                         map.removeLayer(marker);
