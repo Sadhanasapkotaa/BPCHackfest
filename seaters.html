@@ -344,12 +344,18 @@
           count = Number(count);
 
           if (ticket.checked) {
-            count += 1;
-            amount += 200;
+            if (!ticket.nextElementSibling.classList.contains("booked")) {
+              count += 1;
+              amount += 100;
+            } else {
+              ticket.checked = false; // Uncheck the seat if it's booked
+              alert("This seat is already booked.");
+            }
           } else {
             count -= 1;
-            amount -= 200;
+            amount -= 100;
           }
+
           document.querySelector(".amount").innerHTML = amount;
           document.querySelector(".count").innerHTML = count;
         });

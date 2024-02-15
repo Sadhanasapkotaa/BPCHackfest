@@ -1,289 +1,290 @@
 <!DOCTYPE html>
-  <html lang="en">
-    <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Map Parking Location</title>
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-        crossorigin=""
-      />
-      <script
-        src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-        crossorigin=""
-      ></script>
-      <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
-      <style>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map Parking Location</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+      crossorigin=""
+    />
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+      crossorigin=""
+    ></script>
+    <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+    <style>
+      #map {
+        height: 600px;
+        /* Adjust the height as desired */
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        margin-right: 320px;
+        /* Width of the panel in desktop view */
+      }
 
-#map {
-          height: 600px;
-          /* Adjust the height as desired */
-          border: 2px solid #ccc;
-          border-radius: 5px;
-          margin-right: 320px;
-          /* Width of the panel in desktop view */
-        }
+      /* Styling for the sliding panel */
+      .panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        /* Fixed to the right in desktop view */
+        width: 300px;
+        /* Width of the panel in desktop view */
+        height: 100%;
+        background-color: #fff;
+        overflow-y: auto;
+        box-shadow: -1px 0px 10px rgba(0, 0, 0, 0.5);
+      }
+      .leaflet-routing-alt {
+        display: none;
+      }
 
-        /* Styling for the sliding panel */
-        .panel {
-          position: fixed;
-          top: 0;
-          right: 0;
-          /* Fixed to the right in desktop view */
-          width: 300px;
-          /* Width of the panel in desktop view */
-          height: 100%;
-          background-color: #fff;
-          overflow-y: auto;
-          box-shadow: -1px 0px 10px rgba(0, 0, 0, 0.5);
-        }
-        .leaflet-routing-alt {
-          display: none;
-        }
+      .panel-header {
+        text-align: center;
+        padding: 10px;
+        background-color: #f57c51;
+        color: white;
+        font-weight: bold;
+      }
 
-        .panel-header {
-          text-align: center;
-          padding: 10px;
-          background-color: #f57c51;
-          color: white;
-          font-weight: bold;
-        }
+      .panel-content {
+        padding: 20px;
+      }
 
-        .panel-content {
-          padding: 20px;
-        }
+      /* Center and style the search box inside the panel */
+      .search-container {
+        margin-top: 20px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      #searchInput {
+        padding: 10px;
+        font-size: 16px;
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        width: 80%;
+        margin-bottom: 10px;
+        /* Add some margin below the input */
+      }
 
-        /* Center and style the search box inside the panel */
-        .search-container {
-          margin-top: 20px;
-          text-align: center;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
-        #searchInput {
-          padding: 10px;
-          font-size: 16px;
-          border: 2px solid #ccc;
-          border-radius: 5px;
-          width: 80%;
-          margin-bottom: 10px;
-          /* Add some margin below the input */
-        }
+      #searchButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #f57c51;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        width: 50%;
+        /* Set the button width to match the input */
+      }
 
-        #searchButton {
-          padding: 10px 20px;
-          font-size: 16px;
-          background-color: #f57c51;
-          color: white;
-          border: none;
-          border-radius: 5px;
-          cursor: pointer;
-          width: 50%;
-          /* Set the button width to match the input */
-        }
+      #searchButton:hover {
+        background-color: #eb8e6d;
+      }
 
-        #searchButton:hover {
-          background-color: #eb8e6d;
-        }
+      h1 {
+        font-size: 24px;
+        color: #f57c51;
+        margin-top: 20px;
+      }
+      #nearbyPlacesList {
+        margin-top: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+      }
 
-        h1 {
-          font-size: 24px;
-          color: #f57c51;
-          margin-top: 20px;
-        }
-        #nearbyPlacesList {
-          margin-top: 20px;
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-          padding: 10px;
-        }
+      /* Style each nearby place item */
+      .nearby-place {
+        margin: 5px 0;
+        padding: 5px;
+        border-bottom: 1px solid #ddd;
+      }
 
-        /* Style each nearby place item */
-        .nearby-place {
-          margin: 5px 0;
-          padding: 5px;
-          border-bottom: 1px solid #ddd;
-        }
+      .hidden {
+        display: none;
+      }
 
-        .hidden {
-          display: none;
-        }
+      /* Show nearby places list when needed */
+      #nearbyPlacesList.visible {
+        display: block;
+      }
+      /* Style for the directions container */
 
-        /* Show nearby places list when needed */
-        #nearbyPlacesList.visible {
-          display: block;
-        }
-        /* Style for the directions container */
+      /* Centered success message with styled button */
+      #successMessage {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f57c51;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 1000; /* Set a higher z-index to ensure it appears above the map */
+      }
 
-        /* Centered success message with styled button */
-        #successMessage {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #f57c51;
-  color: white;
-  padding: 20px;
-  text-align: center;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  z-index: 1000; /* Set a higher z-index to ensure it appears above the map */
-}
+      #getQrButton {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #f57c51; /* Match your theme color */
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 10px;
+      }
 
-#getQrButton {
-  padding: 10px 20px;
-  font-size: 16px;
-  background-color: #f57c51; /* Match your theme color */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  margin-top: 10px;
-}
+      #getQrButton:hover {
+        background-color: #eb8e6d;
+      }
+    </style>
+  </head>
 
-#getQrButton:hover {
-  background-color: #eb8e6d;
-}
-      </style>
-    </head>
+  <body>
+    <h1>Map of available parking</h1>
 
-    <body>
-      <h1>Map of available parking</h1>
+    <!-- Overall container -->
 
-      <!-- Overall container -->
+    <div class="container">
+      <!-- Map container -->
 
-      <div class="container">
-        <!-- Map container -->
+      <div id="map"></div>
 
-        <div id="map"></div>
+      <!-- Sliding panel with search bar and nearby places list inside -->
 
-        <!-- Sliding panel with search bar and nearby places list inside -->
+      <div class="panel" id="infoPanel">
+        <div class="panel-header">Place Details</div>
 
-        <div class="panel" id="infoPanel">
-          <div class="panel-header">Place Details</div>
+        <div class="panel-content" id="infoContent">
+          <!-- Place details will be populated here -->
 
-          <div class="panel-content" id="infoContent">
-            <!-- Place details will be populated here -->
+          <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Enter location" />
 
-            <div class="search-container">
-              <input type="text" id="searchInput" placeholder="Enter location" />
+            <button id="searchButton">Search</button>
 
-              <button id="searchButton">Search</button>
-
-              <button id="clearButton">Clear</button>
-            </div>
-            <div id="nearbyPlacesList" class="hidden"></div>
+            <button id="clearButton">Clear</button>
           </div>
+          <div id="nearbyPlacesList" class="hidden"></div>
         </div>
       </div>
+    </div>
 
-      <!-- Hidden success message div -->
-  <!-- Hidden success message div -->
-  <div id="successMessage" class="hidden">
-    <p style="color: green;">Slot available! <button id="getQrButton">Get QR Code</button></p>
-  </div>
-  <script>
-    var map = L.map("map");
-    var userMarker = L.marker([0, 0]).addTo(map); // Initialize with a default location
-    var marker, circle;
-    var routingControl;
-    var zoomed = false;
+    <!-- Hidden success message div -->
+    <!-- Hidden success message div -->
+    <div id="successMessage" class="hidden">
+      <p style="color: green">
+        Slot available! <button id="getQrButton">Get QR Code</button>
+      </p>
+    </div>
+    <script>
+         var map = L.map("map");
+         var userMarker = L.marker([0, 0]).addTo(map); // Initialize with a default location
+         var marker, circle;
+         var routingControl;
+         var zoomed = false;
 
-    map.setView([51.505, -0.09], 13);
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          maxZoom: 19,
-          attribution:
-            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-        }).addTo(map);
+         map.setView([51.505, -0.09], 13);
+         L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+               maxZoom: 19,
+               attribution:
+                 '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+             }).addTo(map);
 
-        navigator.geolocation.watchPosition(success, error);
+             navigator.geolocation.watchPosition(success, error);
 
-        function success(pos) {
-          const lat = pos.coords.latitude;
-          const lng = pos.coords.longitude;
-          const accuracy = pos.coords.accuracy;
-          if (marker) {
-            map.removeLayer(marker);
-          }
+             function success(pos) {
+               const lat = pos.coords.latitude;
+               const lng = pos.coords.longitude;
+               const accuracy = pos.coords.accuracy;
+               if (marker) {
+                 map.removeLayer(marker);
+               }
 
-          marker = L.marker([lat, lng]).addTo(map);
+               marker = L.marker([lat, lng]).addTo(map);
 
-          if (!zoomed) {
-            map.setView([lat, lng], 13);
-            zoomed = true;
-          }
+               if (!zoomed) {
+                 map.setView([lat, lng], 13);
+                 zoomed = true;
+               }
 
-          // Update user's marker position
-          userMarker.setLatLng([lat, lng]);
+               // Update user's marker position
+               userMarker.setLatLng([lat, lng]);
 
-          // Create a routing control and add it to the map
-          if (!routingControl) {
-            routingControl = L.Routing.control({
-              waypoints: [
-                L.latLng(userMarker.getLatLng()), // User's location
-                L.latLng(lat, lng), // Searched location
-              ],
-              routeWhileDragging: true,
-              lineOptions: {
-                styles: [{ color: "#0000FF", opacity: 0.7, weight: 5 }],
-              },
-            }).addTo(map);
-          } else {
-            routingControl.setWaypoints([
-              L.latLng(userMarker.getLatLng()), // User's location
-              L.latLng(lat, lng), // Searched location
-            ]);
-          }
+               // Create a routing control and add it to the map
+               if (!routingControl) {
+                 routingControl = L.Routing.control({
+                   waypoints: [
+                     L.latLng(userMarker.getLatLng()), // User's location
+                     L.latLng(lat, lng), // Searched location
+                   ],
+                   routeWhileDragging: true,
+                   lineOptions: {
+                     styles: [{ color: "#0000FF", opacity: 0.7, weight: 5 }],
+                   },
+                 }).addTo(map);
+               } else {
+                 routingControl.setWaypoints([
+                   L.latLng(userMarker.getLatLng()), // User's location
+                   L.latLng(lat, lng), // Searched location
+                 ]);
+               }
 
-          if (!zoomed) {
-            zoomed = map.fitBounds(userMarker.getBounds());
-          }
-        }
+               if (!zoomed) {
+                 zoomed = map.fitBounds(userMarker.getBounds());
+               }
+             }
 
-        function error(err) {
-          if (err === 1) {
-            alert("Please allow geolocation access");
-          } else {
-            alert("Cannot get the current location");
-          }
-        }
-      }
-        }
+             function error(err) {
+               if (err === 1) {
+                 alert("Please allow geolocation access");
+               } else {
+                 alert("Cannot get the current location");
+               }
+             }
+           }
+             }
 
-        // Function to display nearby places in the panel
-  // Function to display detailed nearby places in the panel
-  function displayNearbyPlaces(places) {
-  const nearbyPlacesList = document.getElementById("nearbyPlacesList");
-  nearbyPlacesList.innerHTML = ""; // Clear previous list items
+             // Function to display nearby places in the panel
+       // Function to display detailed nearby places in the panel
+       function displayNearbyPlaces(places) {
+       const nearbyPlacesList = document.getElementById("nearbyPlacesList");
+       nearbyPlacesList.innerHTML = ""; // Clear previous list items
 
-  places.forEach((place, index) => {
-    const placeItem = document.createElement("div");
-    placeItem.className = "nearby-place";
+       places.forEach((place, index) => {
+         const placeItem = document.createElement("div");
+         placeItem.className = "nearby-place";
 
-    // Display detailed information
-    const detailsContainer = document.createElement("div");
-    detailsContainer.innerHTML = `<strong>${place.name}</strong><br>
-                                  Time Frame: ${place.timeFrame}<br>
-                                  Slots Available: ${place.slotsAvailable}`;
+         // Display detailed information
+         const detailsContainer = document.createElement("div");
+         detailsContainer.innerHTML = `<strong>${place.name}</strong><br>
+                                       Time Frame: ${place.timeFrame}<br>
+                                       Slots Available: ${place.slotsAvailable}`;
 
- // "Book Now" button
- const bookNowButton = document.createElement("button");
-    bookNowButton.textContent = "Book Now";
-    bookNowButton.addEventListener("click", function () {
-      // Display the success message
-      const successMessage = document.getElementById("successMessage");
-      successMessage.classList.remove("hidden");
+      // "Book Now" button
+      const bookNowButton = document.createElement("button");
+         bookNowButton.textContent = "Book Now";
+         bookNowButton.addEventListener("click", function () {
+           // Display the success message
+           const successMessage = document.getElementById("successMessage");
+           successMessage.classList.remove("hidden");
 
-      // You can add additional logic here if needed
+           // You can add additional logic here if needed
 
-      // Scroll to the success message
-      successMessage.scrollIntoView({ behavior: "smooth" });
-    });
+           // Scroll to the success message
+           successMessage.scrollIntoView({ behavior: "smooth" });
+         });
     </script>
-</body>
+  </body>
 </html>
