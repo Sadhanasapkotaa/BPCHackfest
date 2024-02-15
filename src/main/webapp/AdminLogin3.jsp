@@ -103,16 +103,16 @@
                         <input type="text" name="idnumber" class="input" id="idnumber" required>
                         <br>
                     </div>
-                    <div class="input_wrap">
-                        <label for="latitude">Latitude</label>
-                        <input id="latitude" class="location_field" type="text">
-                    </div>
+<%--                    <div class="input_wrap">--%>
+<%--                        <label for="latitude">Latitude</label>--%>
+<%--                        <input id="latitude" class="location_field" type="text">--%>
+<%--                    </div>--%>
 
-                    <div class="input_wrap">
-                        <label for="longitude">Longitude</label>
-                        <input id="longitude" class="location_field" type="text">
-                    </div>
-                    <button type="button" id="getLocationBtn">Get Location</button>
+<%--                    <div class="input_wrap">--%>
+<%--                        <label for="longitude">Longitude</label>--%>
+<%--                        <input id="longitude" class="location_field" type="text">--%>
+<%--                    </div>--%>
+<%--                    <button type="button" id="getLocationBtn">Get Location</button>--%>
 
                     <div class="input_wrap same_line">
                         <input type="checkbox" id="terms" name="terms" value="terms" style="display: inline;" required>

@@ -11,6 +11,7 @@ import Service.ParkingService;
 import java.io.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -116,8 +117,6 @@ public class HelloServlet extends HttpServlet {
             System.out.println("Login successfull");
 
 
-
-
             List<Admin> adminList = new ParkingService().getAdminReq();
             req.setAttribute("admin", admin);
             req.setAttribute("adminList", adminList);
@@ -127,6 +126,7 @@ public class HelloServlet extends HttpServlet {
 
 
         }
+
 
         if (page.equalsIgnoreCase("admindetails")){
             HttpSession session = req.getSession();
@@ -358,6 +358,12 @@ public class HelloServlet extends HttpServlet {
                 List<Admin> adminList = new ParkingService().getAdminReq();
                 req.setAttribute("admin", admin);
                 req.setAttribute("adminList", adminList);
+
+                Admin admin1 = new Admin();
+
+                List<Admin> adminList1 = new ParkingService().mergeTable();
+                req.setAttribute("admin1", admin1);
+                req.setAttribute("adminList1", adminList1);
 
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("superAdminDash.jsp");
                 requestDispatcher.forward(req, resp);

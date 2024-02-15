@@ -119,7 +119,7 @@ public class ParkingService {
 
     public List<Admin> getAdminReq(){
         ArrayList<Admin> adminList = new ArrayList<>();
-        String query = "select * from admindetails2 where access='no'";
+        String query = "select * from admindetails2";
         PreparedStatement preparedStatement = new DBConnection().getStatement(query);
         try{
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -139,6 +139,32 @@ public class ParkingService {
         }
         return adminList;
     }
+
+    public List<Admin> mergeTable(){
+        ArrayList<Admin> adminList1 = new ArrayList<>();
+        String query = "select * from admindetails2 INNER JOIN admindetails on admindetails.email=admindetails2.email where admindetails.access='yes' LIMIT 0, 25";
+        PreparedStatement preparedStatement = new DBConnection().getStatement(query);
+        try{
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while(resultSet.next()){
+                Admin admin1 = new Admin();
+                admin1.setFullName(resultSet.getString("fullname"));
+                admin1.setEmail(resultSet.getString("email"));
+                admin1.setPhoneNumber(resultSet.getString("phone"));
+                admin1.setIdNumber(resultSet.getString("idnumber"));
+                admin1.setDocument(resultSet.getString("document"));
+                adminList1.add(admin1);
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return adminList1;
+    }
+
+
+
     public void authorizeUser(User user) {
         String query = "INSERT INTO user1(name, email, password)" + "values(?,?,?)";
         PreparedStatement preparedStatement = new DBConnection().getStatement(query);

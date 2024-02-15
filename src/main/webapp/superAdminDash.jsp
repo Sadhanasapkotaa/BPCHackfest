@@ -173,7 +173,7 @@
                 </div>
                 <div class="card shadow border-0 mb-7">
                     <div class="card-header">
-                        <h5 class="mb-0">Applications</h5>
+                        <h5 class="mb-0">Applicants</h5>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover table-nowrap">
@@ -210,14 +210,8 @@
                                 <td>
                                     <span class="badge badge-lg badge-dot">
                                         <a href="./assets/userCredientals/${admin.document}"> View document</a>
-<%--                                      <img src="C:/Users/sanzi/IdeaProjects/OpenPark-/src/main/webapp/assets/userCredientals/${admin.document}"--%>
-<%--                                              class="modal-trigger-image"--%>
-
-<%--                                              alt="${admin.document}"--%>
-<%--                                              style="height: 50px; width: auto; cursor: pointer"--%>
-<%--                                      />--%>
                         </span>
-                                    <div id="verificationModal" class="modal">
+                                    <div id="verificationModal1" class="modal">
                                         <div class="modal-content">
                                             <span class="close">&times;</span>
                                             <!-- Image element for the verification document -->
@@ -247,6 +241,74 @@
                                     </button>
                                 </td>
                             </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <br>
+                <br>
+
+                <div class="card shadow border-0 mb-7">
+                    <div class="card-header">
+                        <h5 class="mb-0">Applicants</h5>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table table-hover table-nowrap">
+                            <thead class="thead-light">
+                            <tr>
+                                <th scope="col">Company</th>
+                                <th scope="col">email</th>
+                                <th scope="col">phone</th>
+                                <th scope="col">Id No.</th>
+                                <th scope="col">Document</th>
+                                <th></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach items="${adminList1}" var="admin1">
+                                <tr>
+                                    <td>
+                                        <a class="text-heading font-semibold" href="#">
+                                                ${admin1.fullName}
+                                        </a>
+                                    </td>
+                                    <td>
+                                            ${admin1.email}
+                                    </td>
+                                    <td>
+                                        <a class="text-heading font-semibold" href="#">
+                                                ${admin1.phoneNumber}
+                                        </a>
+                                    </td>
+                                    <td>
+                                            ${admin1.idNumber}
+                                    </td>
+                                    <td>
+                                            <span class="badge badge-lg badge-dot">
+                                                <a href="./assets/userCredientals/${admin1.document}"> View document</a>
+                                </span>
+                                        <div id="verificationModal" class="modal">
+                                            <div class="modal-content">
+                                                <span class="close">&times;</span>
+                                                <!-- Image element for the verification document -->
+
+                                                <img src="assets/userCredientals/${admin1.document}"
+                                                     id="${admin1.document}"
+                                                     alt="${admin1.document}"
+                                                     style="
+                                        width: 500px;
+                                        height: auto;
+                                        object-fit: cover;
+                                        position: absolute;
+                                        margin-top: 60px;
+                                        align-self: center;
+                                      "
+                                                />
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
                             </c:forEach>
                             </tbody>
                         </table>
