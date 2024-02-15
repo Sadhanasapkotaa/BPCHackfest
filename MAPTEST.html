@@ -16,6 +16,32 @@
         crossorigin=""
       ></script>
       <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+      <style>
+
+#map {
+          height: 600px;
+          /* Adjust the height as desired */
+          border: 2px solid #ccc;
+          border-radius: 5px;
+          margin-right: 320px;
+          /* Width of the panel in desktop view */
+        }
+
+        /* Styling for the sliding panel */
+        .panel {
+          position: fixed;
+          top: 0;
+          right: 0;
+          /* Fixed to the right in desktop view */
+          width: 300px;
+          /* Width of the panel in desktop view */
+          height: 100%;
+          background-color: #fff;
+          overflow-y: auto;
+          box-shadow: -1px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+
+      </style>
     </head>
 
     <body>
