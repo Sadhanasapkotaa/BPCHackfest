@@ -5,6 +5,7 @@ import MailSender.RequestRegistration;
 import Model.Admin;
 import Hashing.PasswordHashing;
 import Model.DateTime;
+import Model.SensorData;
 import Model.User;
 import Service.ParkingService;
 
@@ -39,6 +40,14 @@ public class HelloServlet extends HttpServlet {
 
         if(page.equalsIgnoreCase("ParkingSlot")){
 
+
+            SensorData sd = new SensorData();
+
+
+
+            List<SensorData> sensorList = new ParkingService().getSensor1Status();
+            req.setAttribute("sd", sd);
+            req. setAttribute("sensorList", sensorList);
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("Slots.jsp");
             requestDispatcher.forward(req, resp);
         }

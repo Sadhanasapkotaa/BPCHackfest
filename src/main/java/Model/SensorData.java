@@ -8,6 +8,16 @@ public class SensorData {
 
     private String distance;
 
+    private  String slotNo;
+
+    public String getSlotNo() {
+        return slotNo;
+    }
+
+    public void setSlotNo(String slotNo) {
+        this.slotNo = slotNo;
+    }
+
     public int getId() {
         return id;
     }

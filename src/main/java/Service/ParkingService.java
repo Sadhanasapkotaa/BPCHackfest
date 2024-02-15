@@ -3,13 +3,38 @@ package Service;
 import DBConnection.DBConnection;
 import Model.Admin;
 import Model.DateTime;
+import Model.SensorData;
 import Model.User;
+import com.mysql.cj.jdbc.CallableStatementWrapper;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingService {
+
+    public List<SensorData> getSensor1Status(){
+        ArrayList<SensorData> sensorList = new ArrayList<>();
+        String query = "select * from espdata1";
+        PreparedStatement preparedStatement = new DBConnection().getStatement(query);
+        try {
+            ResultSet rs = preparedStatement.executeQuery();
+
+            while (rs.next()){
+                SensorData sd = new SensorData();
+                sd.setSlotNo(rs.getString("slotNo"));
+                sd.setStatus(rs.getString("status"));
+                sd.setDistance(rs.getString("distance"));
+                sensorList.add(sd);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+
+        return sensorList;
+    }
+
 
     public boolean isEmailAlreadyExists(String email){
         String query="select count(*) from admindetails where email=?";
