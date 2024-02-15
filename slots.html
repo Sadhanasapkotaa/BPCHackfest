@@ -39,7 +39,10 @@
 
       /* modal code  */
       /* Modal Styles */
-      .modal {
+      .modal,
+      .warningModal,
+      .bikeSuccessModal,
+      .carSuccessModal {
         display: none;
         position: fixed;
         z-index: 1;
@@ -110,31 +113,24 @@
         <button id="bikeBtn">Bike</button>
       </div>
     </div>
-
     <div id="warningModal" class="warningModal">
       <div class="modal-content">
         <p>
           This slot has been partially booked for bikes. Only bikes can be
           parked here.
         </p>
-        <button id="carBtn">Cancel</button>
-        <button id="bikeBtn">Okay</button>
       </div>
     </div>
 
     <div id="bikeSuccessModal" class="bikeSuccessModal">
       <div class="modal-content">
         <p>Bike Slot Booked Successfully!</p>
-        <button id="carBtn">Cancel</button>
-        <button id="bikeBtn">Okay</button>
       </div>
     </div>
 
     <div id="carSuccessModal" class="carSuccessModal">
       <div class="modal-content">
         <p>Car Slot Booked Successfully!</p>
-        <button id="carBtn">Cancel</button>
-        <button id="bikeBtn">Okay</button>
       </div>
     </div>
 
@@ -146,11 +142,19 @@
         slots.forEach((slot) => {
           slot.addEventListener("click", function () {
             modal.style.display = "block";
+            setTimeout(function () {
+              modal.style.display = "none";
+            }, 1500);
+
             const carBtn = document.getElementById("carBtn");
             const bikeBtn = document.getElementById("bikeBtn");
 
             carBtn.addEventListener("click", function () {
               modal.style.display = "none";
+              setTimeout(function () {
+                modal.style.display = "none";
+              }, 1500);
+
               bookVehicle("car", slot);
             });
 
@@ -171,33 +175,54 @@
                   part.classList.add("booked");
                 });
                 slot.classList.add("booked");
-                alert("Slot booked for car successfully!");
+                carSuccessModal.style.display = "block";
+                setTimeout(function () {
+                  carSuccessModal.style.display = "none";
+                }, 1500);
               } else {
-                alert(
-                  "This slot has been partially booked for bikes. Only bikes can be parked here."
-                );
+                warningModal.style.display = "block";
+                setTimeout(function () {
+                  warningModal.style.display = "none";
+                }, 1500);
               }
             } else if (vehicleType === "bike") {
               const availablePart = slot.querySelector(
                 ".available:not(.booked)"
               );
+
               if (availablePart) {
                 availablePart.style.backgroundColor = "blue";
                 availablePart.classList.add("booked");
+
                 const bookedParts = slot.querySelectorAll(".booked").length;
                 if (bookedParts === 4) {
                   slot.classList.add("booked");
                 }
-                alert("Slot booked for bike successfully!");
+                bikeSuccessModal.style.display = "block";
+                setTimeout(function () {
+                  bikeSuccessModal.style.display = "none";
+                }, 1500);
               } else {
-                alert("There is not enough space for bikes in this slot!");
+                warningModal.style.display = "block";
+                setTimeout(function () {
+                  warningModal.style.display = "none";
+                }, 1500);
               }
-            } else {
-              alert('Invalid vehicle type. Please enter "car" or "bike".');
             }
           } else {
-            alert("Slot already booked!");
+            warningModal.style.display = "block";
+            setTimeout(function () {
+              warningModal.style.display = "none";
+            }, 1500);
           }
+        }
+
+        function resetCarSlot(slot) {
+          slot.querySelectorAll(".booked").forEach((part) => {
+            part.style.backgroundColor = "green";
+            part.classList.remove("booked");
+          });
+          slot.classList.remove("booked");
         }
       });
     </script>
