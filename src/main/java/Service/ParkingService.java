@@ -222,7 +222,7 @@ public class ParkingService {
         } catch (SQLException e){
             e.printStackTrace();
         }
-        return hasParked;
+        return false;
     }
 
     //select booking details
