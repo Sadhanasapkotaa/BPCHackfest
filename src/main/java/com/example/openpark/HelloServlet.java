@@ -73,7 +73,7 @@ public class HelloServlet extends HttpServlet {
 
         if(page.equalsIgnoreCase("ownerDash")){
 
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("Owner.jsp");
+            RequestDispatcher requestDispatcher = req.getRequestDispatcher("OwnerDash.jsp");
 
             requestDispatcher.forward(req,resp);
         }
@@ -144,6 +144,12 @@ public class HelloServlet extends HttpServlet {
             rf.sendAccountRegistrationMessage(email);
 
             System.out.println("Login successfull");
+
+            int ApplicantNo = new ParkingService().countApplicants();
+            req.setAttribute("ApplicantNo", ApplicantNo);
+
+            int fullSlot=new ParkingService().countAvailableSlot();
+            req.setAttribute("fullSlot", fullSlot);
 
 
             List<Admin> adminList = new ParkingService().mergeTableNo();
