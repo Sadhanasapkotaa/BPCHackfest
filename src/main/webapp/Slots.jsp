@@ -3,44 +3,59 @@
 <head>
     <title>Slots</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
         .container-wrapper {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax values as needed */
             gap: 20px;
             padding: 20px; /* Add padding to container wrapper */
         }
-
         .container {
             margin-bottom: 20px; /* Add margin to container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-
         .box {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100px;
-            border: 1px solid #000;
+            width: 100px; /* Set width to create square box */
             border-radius: 10px; /* Add border radius */
             padding: 10px; /* Add padding */
             cursor: pointer; /* Change cursor to pointer for clickable elements */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            background-color: #fff;
         }
-
+        .box:hover {
+            transform: translateY(-5px);
+        }
         .full {
-            background-color: red;
+            background-color: #ff6161;
+            color: #fff;
         }
-
         .empty {
-            background-color: green;
+            background-color: #6dd17e;
+            color: #fff;
         }
-
+        .sub-box {
+            font-size: 16px;
+            font-weight: bold;
+        }
         @media (max-width: 768px) {
             /* Adjust styles for smaller screens */
             .container-wrapper {
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust minmax values for smaller screens */
             }
         }
-
         @media (max-width: 576px) {
             /* Adjust styles for even smaller screens */
             .container-wrapper {

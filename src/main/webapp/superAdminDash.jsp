@@ -310,7 +310,7 @@
                                         </div>
                                     </td>
                                     <td class="text-end">
-                                        <a href="openpark?page=viewSlot"  id="btn1"  class="btn btn-sm btn-neutral">View Slot ${fullSlot}</a>
+                                        <a href="openpark?page=viewSlot"  id="btn1"  class="btn btn-sm btn-neutral">View Slot</a>
 
                                     </td>
                                 </tr>

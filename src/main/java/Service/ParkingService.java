@@ -149,7 +149,7 @@ public class ParkingService {
     }
 
     public void adminSignUp2(Admin admin){
-        String query = "insert into admindetails1(email , regtype, carslots, bikeslots, bikecost, carcost, starttime, endtime)" + " values(?,?,?,?,?,?,?,?,?,?)";
+        String query = "insert into admindetails1(email , regtype, carslots, bikeslots, bikecost, carcost, starttime, endtime)" + " values(?,?,?,?,?,?,?,?)";
         PreparedStatement preparedStatement = new DBConnection().getStatement(query);
         try{
             preparedStatement.setString(1,admin.getEmail());
