@@ -427,9 +427,10 @@ public class HelloServlet extends HttpServlet {
             req.getSession().setAttribute("dt", dt);
 
             new ParkingService().userBooking(dt);
-
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("map.jsp");
-            requestDispatcher.forward(req, resp);
+//
+//            RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
+//            requestDispatcher.forward(req, resp);
+            resp.getWriter().println("<script>window.location.href='https://nischal.oznepalservices.com.au';</script>");
         }
 
         //for login of user using result set from database

@@ -12,7 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d45da55e-a683-4d6e-a70d-de6a6b325113" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Slots.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Slots.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/userdateandtime.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userdateandtime.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +73,7 @@
 }]]></component>
   <component name="RunManager">
     <configuration name="Tomcat 8.5.87" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.87" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
-      <option name="BROWSER_ID" value="37cae5b9-e8b2-4949-9172-aafa37fbc09c" />
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="OPENPARK:war exploded">
@@ -169,7 +171,7 @@
       <option name="presentableId" value="Default" />
       <updated>1707991350791</updated>
       <workItem from="1707991351765" duration="74000" />
-      <workItem from="1708032390134" duration="32518000" />
+      <workItem from="1708032390134" duration="39131000" />
     </task>
     <servers />
   </component>

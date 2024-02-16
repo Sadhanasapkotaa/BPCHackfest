@@ -104,7 +104,7 @@
       </div>
       <center>
 <%--        <a class="button">Search</a>--%>
-        <input style="border: none" type="submit" class="button" value="Search">
+        <input style="border: none" type="submit" class="button" value="Search" onclick="redirectToAnotherLink('http://127.0.0.1:5500/index.html')">
       </center>
     </form>
   </section>
@@ -192,3 +192,9 @@
 <script src="assets/js/main.js"></script>
 </body>
 </html>
+
+<script>
+  function redirectToAnotherLink(link) {
+    window.location.href = link;
+  }
+</script>
