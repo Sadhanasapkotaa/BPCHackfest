@@ -227,7 +227,7 @@ public class ParkingService {
 
     //select booking details
 
-    public void getQR(){
+    public void getQR() {
         String query = "select * from bookingdetails";
         PreparedStatement preparedStatement = new DBConnection().getStatement(query);
         try {
@@ -236,7 +236,7 @@ public class ParkingService {
             JSONArray jsonArray = new JSONArray();
 
             while (resultSet.next()) {
-                int bookingid = resultSet.getInt("bookingid");
+                int id = resultSet.getInt("bookingid");
                 String name = resultSet.getString("name");
                 Time startTime = resultSet.getTime("starttime");
                 Time endTime = resultSet.getTime("endTime");
@@ -244,7 +244,7 @@ public class ParkingService {
 
                 ////////////////////////////////////////
                 JSONObject jsonObject = new JSONObject();
-                jsonObject.put("bookingid", bookingid);
+                jsonObject.put("bookingid", id);
                 jsonObject.put("name", name);
                 jsonObject.put("startTime", startTime);
                 jsonObject.put("endTime", endTime);
@@ -267,11 +267,6 @@ public class ParkingService {
             e.printStackTrace();
         }
 
-    }
-
-    public static void main(String[] args) {
-        ParkingService service = new ParkingService();
-        service.getQR();
     }
 
 
