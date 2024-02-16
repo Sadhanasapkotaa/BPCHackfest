@@ -396,6 +396,20 @@ public class HelloServlet extends HttpServlet {
             ParkingService service = new ParkingService();
             service.getQR();
 
+            String filePath = "C://Users//Acer//IdeaProjects//OPENPARK//src//main//webapp//test.json";
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+            StringBuilder data = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                data.append(line);
+            }
+            reader.close();
+
+            // Set content type and send data as response
+            resp.setContentType("application/json");
+            resp.setCharacterEncoding("UTF-8");
+            resp.getWriter().write(data.toString());
+
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("qr.jsp");
             requestDispatcher.forward(req, resp);
         }

@@ -268,9 +268,9 @@
         try {
             // Manually provided data
             const responseData = [
-                { displayName: 'Bhaktapur', latitude: 27.617, longitude: 85.4296 },
-                { displayName: 'Lalitpur', latitude: 27.6669, longitude: 85.3126 },
-                { displayName: 'Lalitpur', latitude: 27.6663, longitude: 85.333 }
+                { displayName: 'Ghantaghar', latitude: 27.019178988591104, longitude: 84.87897525192585 },
+                { displayName: 'Bhatbhateni', latitude: 27.04488734401453, longitude: 84.89898142723736 },
+                { displayName: 'Clarks Resort', latitude: 27.047343085304483, longitude: 84.90595446153432 }
 
             ];
 
@@ -279,7 +279,7 @@
         } catch (error) {
             console.error('Error fetching locations:', error);
         }
-    });
+    });x
 
 
     // document.getElementById('search-button').addEventListener('click', async () => {
