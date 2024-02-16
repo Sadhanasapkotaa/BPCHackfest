@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2024 at 09:17 PM
+-- Generation Time: Feb 16, 2024 at 07:46 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -39,9 +39,9 @@ CREATE TABLE `admindetails` (
 --
 
 INSERT INTO `admindetails` (`id`, `email`, `password`, `access`) VALUES
-(1, 'sanzivmagat80@gmail.com', '69a98c032fac313a5d637441e3368803', 'yes'),
-(6, 'sudup@gmail.com', '251800da8d338eb82819105d5f3c7629', 'yes'),
-(20, 'anitaneupane2061@gmail.com', 'f2b53f6c4d30ed849a2e2b7f0d1b4248', 'no');
+(1, 'sanzivmagat80@gmail.com', 'dc647eb65e6711e155375218212b3964', 'yes'),
+(2, 'sudip@gmail.com', 'dc647eb65e6711e155375218212b3964', 'yes'),
+(3, 'sudip1@gmail.com', 'dc647eb65e6711e155375218212b3964', 'no');
 
 -- --------------------------------------------------------
 
@@ -66,8 +66,7 @@ CREATE TABLE `admindetails1` (
 --
 
 INSERT INTO `admindetails1` (`id`, `email`, `regtype`, `carslots`, `bikeslots`, `bikecost`, `carcost`, `starttime`, `endtime`) VALUES
-(1, 'sanzivmagat80@gmail.com', 'Person', 4, 8, 50, 25, '18:33:00', '06:33:00'),
-(6, 'sudup@gmail.com', 'Organization', 7, 14, 50, 25, '14:31:00', '14:31:00');
+(1, 'sudip1@gmail.com', 'Organization', 2, 4, 50, 25, '23:02:00', '12:02:00');
 
 -- --------------------------------------------------------
 
@@ -94,9 +93,9 @@ CREATE TABLE `admindetails2` (
 --
 
 INSERT INTO `admindetails2` (`id`, `email`, `fullname`, `photo`, `address`, `phone`, `idtype`, `document`, `idnumber`, `latitude`, `longitude`) VALUES
-(1, 'sanzivmagat80@gmail.com', 'sanzivmagar', '2dragon.png', 'Lalitpur', '9860357512', 'Citizenship', 'citizenship.jpg', '45353453', 0, 0),
-(5, 'sudup@gmail.com', 'sudip magar', '2dragonComp.png', 'ad,makda', '9860357512', 'Citizenship', 'neil.png', '45353453', 0, 0),
-(6, 'anitaneupane2061@gmail.com', 'nischal tmg', '2dragon.png', 'djfhkdhfkd', '9860357512', 'Citizenship', 'ep4_thumb.png', '45353453', 27.6974, 85.3318);
+(1, 'sanzivmagat80@gmail.com', 'Sanjeev Magar', 'RamDai.JPG', 'Lagankhel', '9860357512', 'Citizenship', 'citizenship.jpg', '8768767666678', 27.1015, 84.9517),
+(2, 'sudip@gmail.com', 'sdusds', 'arrow.jpg', 'd,fmsdf', '64456465', 'Citizenship', 'citizenship.jpg', '345345345', 27.0186, 84.8861),
+(3, 'sudip1@gmail.com', 'ddfdfds', 'arrow.jpg', 'fsddfs', '4535434', 'Citizenship', 'citizenship.jpg', '453535345', 27.1015, 84.9517);
 
 -- --------------------------------------------------------
 
@@ -117,8 +116,17 @@ CREATE TABLE `datetime1` (
 --
 
 INSERT INTO `datetime1` (`dateId`, `entryDate`, `exitDate`, `entryTime`, `exitTime`) VALUES
-(1, '2024-01-02', '2024-01-02', '13:05:00', '14:05:00'),
-(2, '2024-01-30', '2024-01-30', '17:00:00', '18:00:00');
+(1, '2024-02-14', '2024-02-20', '14:09:00', '15:09:00'),
+(2, '2024-02-14', '2024-02-13', '15:10:00', '15:12:00'),
+(3, '2024-02-14', '2024-02-13', '15:10:00', '15:12:00'),
+(4, '2024-02-20', '2024-02-12', '15:13:00', '14:14:00'),
+(5, '2024-02-14', '2024-02-22', '14:15:00', '14:16:00'),
+(6, '2024-02-19', '2024-02-14', '15:17:00', '15:17:00'),
+(7, '2024-02-04', '2024-02-21', '15:27:00', '15:27:00'),
+(8, '2024-02-06', '2024-02-12', '23:28:00', '23:30:00'),
+(9, '2024-02-07', '2024-02-12', '13:52:00', '23:53:00'),
+(10, '2024-02-07', '2024-02-12', '13:52:00', '23:53:00'),
+(11, '2024-02-07', '2024-02-14', '04:09:00', '03:09:00');
 
 -- --------------------------------------------------------
 
@@ -138,7 +146,14 @@ CREATE TABLE `espdata1` (
 --
 
 INSERT INTO `espdata1` (`id`, `slotNo`, `status`, `distance`) VALUES
-(1, '1', 'full', 2);
+(1, '1', 'empty', 56),
+(3, '2', 'empty', 1111),
+(4, '3', 'empty', 50),
+(5, '4', 'empty', 1011),
+(6, '5', 'empty', 58),
+(7, '6', 'empty', 100),
+(8, '7', 'empty', 45),
+(9, '8', 'empty', 15);
 
 -- --------------------------------------------------------
 
@@ -208,37 +223,37 @@ ALTER TABLE `user1`
 -- AUTO_INCREMENT for table `admindetails`
 --
 ALTER TABLE `admindetails`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `admindetails1`
 --
 ALTER TABLE `admindetails1`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `admindetails2`
 --
 ALTER TABLE `admindetails2`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `datetime1`
 --
 ALTER TABLE `datetime1`
-  MODIFY `dateId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `dateId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `espdata1`
 --
 ALTER TABLE `espdata1`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `user1`
 --
 ALTER TABLE `user1`
-  MODIFY `userId` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `userId` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
