@@ -110,7 +110,6 @@ function createRouteToLocation(destination) {
     });
 }
 
-
 //functionto zoom in searched results
 function zoomToSearchResults(results) {
     const bounds = new L.LatLngBounds(); // Create bounds object
