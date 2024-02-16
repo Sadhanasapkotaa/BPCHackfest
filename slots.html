@@ -1,230 +1,273 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Parking Slot Booking</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-      }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/styles.css">
+  <title>Parking Slot Booking</title>
+  
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f5f5f5;
+    }
 
-      .parking-lot {
-        display: flex;
-      }
+    /* Parking Slot Styles */
+    .parking-lot {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 50px;
+    }
 
-      .slot {
-        width: 120px;
-        height: 120px;
-        margin: 10px;
-        border: 2px solid #000;
-        position: relative;
-        display: flex;
-        flex-wrap: wrap;
-      }
+    .slot {
+      width: 120px;
+      height: 120px;
+      margin: 10px;
+      border: 2px solid #ccc;
+      position: relative;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-      .available {
-        width: 50%;
-        height: 50%;
-        background-color: green;
-        opacity: 0.3;
-      }
+    .slot:hover {
+      transform: scale(1.05);
+    }
 
-      .slot-info {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
+    .available {
+      width: 50%;
+      height: 50%;
+      background-color: green;
+      opacity: 0.3;
+    }
 
-      /* modal code  */
-      /* Modal Styles */
-      .modal,
-      .warningModal,
-      .bikeSuccessModal,
-      .carSuccessModal {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0, 0, 0, 0.4);
-      }
+    .slot-info {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 14px;
+    }
 
-      .modal-content {
-        background-color: #fefefe;
-        margin: 15% auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-        text-align: center;
-      }
+    /* Modal Styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.4);
+    }
 
-      /* Button Styles */
-      button {
-        margin: 10px;
-        padding: 10px 20px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="parking-lot">
-      <div class="slot" id="slot1">
-        <div class="available"></div>
-        <div class="available"></div>
-        <div class="available"></div>
-        <div class="available"></div>
-        <div class="slot-info">Slot 1</div>
+    .modal-content {
+      background-color: #fefefe;
+      margin: 15% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      width: 80%;
+      text-align: center;
+    }
+
+    .btn {
+      margin: 10px;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      background-color: #333;
+      color: #fff;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header class="l-header" id="header">
+    <nav class="nav bd-container">
+      <a href="#" class="nav__logo">OPEN<b>PARK</b></a>
+
+      <div class="nav__menu" id="nav-menu">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a href="#home" class="nav__link active-link">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="#share" class="nav__link">Owner</a>
+          </li>
+          <li class="nav__item">
+            <a href="#decoration" class="nav__link">Features</a>
+          </li>
+          <li class="nav__item">
+            <a href="#accessory" class="nav__link">Pricing</a>
+          </li>
+
+          <li class="nav__item">
+            <a href="userLoginSignup.html" class="nav-button">Login</a>
+          </li>
+        </ul>
       </div>
-      <div class="slot" id="slot2">
-        <div class="available"></div>
-        <div class="available"></div>
-        <div class="available"></div>
-        <div class="available"></div>
-        <div class="slot-info">Slot 2</div>
+
+      <div class="nav__toggle" id="nav-toggle">
+        <i class="bx bx-grid-alt"></i>
       </div>
-      <div class="slot" id="slot3">
-        <div class="available"></div>
-        <div class="available"></div>
-        <div class="available"></div>
-        <div class="available"></div>
-        <div class="slot-info">Slot 3</div>
-      </div>
-      <div class="slot" id="slot4">
-        <div class="available"></div>
-        <div class="available"></div>
-        <div class="available"></div>
-        <div class="available"></div>
-        <div class="slot-info">Slot 4</div>
-      </div>
+    </nav>
+  </header>
+
+  <!-- Parking Lot Section -->
+  <div class="parking-lot">
+    <div class="slot booked" id="slot1">
+      <div class="available booked"></div>
+      <div class="available booked"></div>
+      <div class="available booked"></div>
+      <div class="available booked"></div>
+      <div class="slot-info">Slot 1</div>
     </div>
-
-    <!-- Modal HTML (same as before) -->
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <p>Do you want to book this slot for a car or a bike?</p>
-        <button id="carBtn">Car</button>
-        <button id="bikeBtn">Bike</button>
-      </div>
+    <div class="slot" id="slot2">
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="slot-info">Slot 2</div>
     </div>
-    <div id="warningModal" class="warningModal">
-      <div class="modal-content">
-        <p>
-          This slot has been partially booked for bikes. Only bikes can be
-          parked here.
+    <div class="slot" id="slot3">
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="slot-info">Slot 3</div>
+    </div>
+    <div class="slot" id="slot4">
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="available"></div>
+      <div class="slot-info">Slot 4</div>
+    </div>
+  </div>
+  
+  
+
+  <!-- Modal HTML -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <p>Are you sure you want to book this slot?</p>
+      <button id="confirmBtn" class="btn">Confirm</button>
+      <button id="cancelBtn" class="btn">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Confirmation Message -->
+  <div id="confirmationMessage" class="modal" style="display: none;">
+    <div class="modal-content">
+      <p>Slot booked successfully!</p>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer section">
+    <div class="footer__container bd-container bd-grid">
+      <div class="footer__content">
+        <h3 class="footer__title">
+          <a href="#" class="footer__logo">OPEN<b>PARK</b></a>
+        </h3>
+        <p class="footer__description">
+          Looking for<br />
+          parking space?
         </p>
       </div>
-    </div>
 
-    <div id="bikeSuccessModal" class="bikeSuccessModal">
-      <div class="modal-content">
-        <p>Bike Slot Booked Successfully!</p>
+      <div class="footer__content">
+        <h3 class="footer__title">Our Services</h3>
+        <ul>
+          <li><a href="#" class="footer__link">Pricing </a></li>
+          <li><a href="#" class="footer__link">Discounts</a></li>
+          <li><a href="#" class="footer__link">FAQs</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Our Company</h3>
+        <ul>
+          <li><a href="#" class="footer__link">Blog</a></li>
+          <li><a href="#" class="footer__link">About us</a></li>
+          <li><a href="#" class="footer__link">Our mision</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__content">
+        <h3 class="footer__title">Social</h3>
+        <a href="#" class="footer__social"
+          ><i class="bx bxl-facebook-circle"></i
+        ></a>
+        <a href="#" class="footer__social"><i class="bx bxl-twitter"></i></a>
+        <a href="#" class="footer__social"
+          ><i class="bx bxl-instagram-alt"></i
+        ></a>
       </div>
     </div>
 
-    <div id="carSuccessModal" class="carSuccessModal">
-      <div class="modal-content">
-        <p>Car Slot Booked Successfully!</p>
-      </div>
-    </div>
+    <p class="footer__copy">
+      &#169; 2024 Team Everest. BPC Hackathon. All right reserved
+    </p>
+  </footer>
 
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const modal = document.getElementById("myModal");
-        const slots = document.querySelectorAll(".slot");
+  <!--========== SCROLL REVEAL ==========-->
+  <script src="https://unpkg.com/scrollreveal"></script>
 
-        slots.forEach((slot) => {
-          slot.addEventListener("click", function () {
-            modal.style.display = "block";
-            setTimeout(function () {
-              modal.style.display = "none";
-            }, 1500);
+  <!-- JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const slots = document.querySelectorAll('.slot');
+      const modal = document.getElementById("myModal");
+      const confirmBtn = document.getElementById("confirmBtn");
+      const cancelBtn = document.getElementById("cancelBtn");
+      const confirmationMessage = document.getElementById("confirmationMessage");
 
-            const carBtn = document.getElementById("carBtn");
-            const bikeBtn = document.getElementById("bikeBtn");
+      slots.forEach(slot => {
+        slot.addEventListener('click', function() {
+          modal.style.display = "block";
 
-            carBtn.addEventListener("click", function () {
-              modal.style.display = "none";
-              setTimeout(function () {
-                modal.style.display = "none";
-              }, 1500);
+          confirmBtn.onclick = function() {
+            bookSlot(slot);
+            modal.style.display = "none";
+          };
 
-              bookVehicle("car", slot);
-            });
-
-            bikeBtn.addEventListener("click", function () {
-              modal.style.display = "none";
-              bookVehicle("bike", slot);
-            });
-          });
+          cancelBtn.onclick = function() {
+            modal.style.display = "none";
+          };
         });
-
-        function bookVehicle(vehicleType, slot) {
-          if (!slot.classList.contains("booked")) {
-            if (vehicleType === "car") {
-              const bookedParts = slot.querySelectorAll(".booked").length;
-              if (bookedParts === 0) {
-                slot.querySelectorAll(".available").forEach((part) => {
-                  part.style.backgroundColor = "red";
-                  part.classList.add("booked");
-                });
-                slot.classList.add("booked");
-                carSuccessModal.style.display = "block";
-                setTimeout(function () {
-                  carSuccessModal.style.display = "none";
-                }, 1500);
-              } else {
-                warningModal.style.display = "block";
-                setTimeout(function () {
-                  warningModal.style.display = "none";
-                }, 1500);
-              }
-            } else if (vehicleType === "bike") {
-              const availablePart = slot.querySelector(
-                ".available:not(.booked)"
-              );
-
-              if (availablePart) {
-                availablePart.style.backgroundColor = "blue";
-                availablePart.classList.add("booked");
-
-                const bookedParts = slot.querySelectorAll(".booked").length;
-                if (bookedParts === 4) {
-                  slot.classList.add("booked");
-                }
-                bikeSuccessModal.style.display = "block";
-                setTimeout(function () {
-                  bikeSuccessModal.style.display = "none";
-                }, 1500);
-              } else {
-                warningModal.style.display = "block";
-                setTimeout(function () {
-                  warningModal.style.display = "none";
-                }, 1500);
-              }
-            }
-          } else {
-            warningModal.style.display = "block";
-            setTimeout(function () {
-              warningModal.style.display = "none";
-            }, 1500);
-          }
-        }
-
-        function resetCarSlot(slot) {
-          slot.querySelectorAll(".booked").forEach((part) => {
-            part.style.backgroundColor = "green";
-            part.classList.remove("booked");
-          });
-          slot.classList.remove("booked");
-        }
       });
-    </script>
-  </body>
+
+      function bookSlot(slot) {
+        if (!slot.classList.contains('booked')) {
+          slot.querySelectorAll('.available').forEach(part => {
+            part.style.backgroundColor = 'red';
+            part.classList.add('booked');
+          });
+          slot.classList.add('booked');
+          confirmationMessage.style.display = "block";
+          setTimeout(function() {
+            confirmationMessage.style.display = "none";
+          }, 1500);
+        } else {
+          alert('Slot already booked!');
+        }
+      }
+    });
+  </script>
+</body>
 </html>
