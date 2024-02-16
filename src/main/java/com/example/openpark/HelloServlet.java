@@ -182,14 +182,18 @@ public class HelloServlet extends HttpServlet {
                 req.setAttribute("admin1", admin1);
                 req.setAttribute("adminList1", adminList1);
 
+                int ApplicantNo = new ParkingService().countApplicants();
+                req.setAttribute("ApplicantNo", ApplicantNo);
+
+                int fullSlot=new ParkingService().countAvailableSlot();
+                req.setAttribute("fullSlot", fullSlot);
+
+
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("superAdminDash.jsp");
                 requestDispatcher.forward(req, resp);
             }else{
                 System.out.println("Not deleted");
             }
-
-
-
 
 
         }

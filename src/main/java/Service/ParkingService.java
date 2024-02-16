@@ -43,17 +43,18 @@ public class ParkingService {
     }
 
     public int countApplicants() {
-        String query = "select count(*) from admindetails";
-        PreparedStatement preparedStatement = new DBConnection().getStatement(query);
+        int count = 0;
+        String query = "SELECT COUNT(*) AS access FROM admindetails WHERE access = 'no'";
         try {
+            PreparedStatement preparedStatement = new DBConnection().getStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
-            if(resultSet.next()) {
-                return resultSet.getInt(1);
+            if (resultSet.next()) {
+                count = resultSet.getInt("access");
             }
-        } catch (SQLException e) {
+        }catch (SQLException e){
             e.printStackTrace();
         }
-        return 0;
+        return count;
     }
 
 
