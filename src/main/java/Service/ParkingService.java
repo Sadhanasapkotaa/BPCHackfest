@@ -271,7 +271,7 @@ public class ParkingService {
 
     public static void main(String[] args) {
         ParkingService service = new ParkingService();
-        service.getAdminReq();
+        service.loginUser("user", "user");
     }
 
 
