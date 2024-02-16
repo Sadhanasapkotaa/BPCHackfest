@@ -38,7 +38,7 @@ public class HelloServlet extends HttpServlet {
         resp.setContentType("text/html");
         String page = req.getParameter("page");
 
-        if(page.equalsIgnoreCase("ParkingSlot")){
+        if(page.equalsIgnoreCase("viewSlot")){
 
 
             SensorData sd = new SensorData();
@@ -436,6 +436,9 @@ public class HelloServlet extends HttpServlet {
                 List<Admin> adminList1 = new ParkingService().mergeTableYes();
                 req.setAttribute("admin1", admin1);
                 req.setAttribute("adminList1", adminList1);
+
+                int fullSlot=new ParkingService().countAvailableSlot();
+                req.setAttribute("fullSlot", fullSlot);
 
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("superAdminDash.jsp");
                 requestDispatcher.forward(req, resp);

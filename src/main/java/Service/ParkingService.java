@@ -12,6 +12,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingService {
+    public int countAvailableSlot() {
+        int count = 0;
+        String query = "SELECT COUNT(*) AS status FROM espdata1 WHERE status = 'full'";
+        try {
+           PreparedStatement preparedStatement = new DBConnection().getStatement(query);
+           ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                    count = resultSet.getInt("status");
+                }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+      return count;
+    }
+
+
 
     public List<SensorData> getSensor1Status(){
         ArrayList<SensorData> sensorList = new ArrayList<>();

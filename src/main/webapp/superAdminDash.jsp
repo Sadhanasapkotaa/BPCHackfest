@@ -309,6 +309,10 @@
                                             </div>
                                         </div>
                                     </td>
+                                    <td class="text-end">
+                                        <a href="openpark?page=viewSlot"  id="btn1"  class="btn btn-sm btn-neutral">View Slot</a>
+
+                                    </td>
                                 </tr>
                             </c:forEach>
                             </tbody>
@@ -320,7 +324,7 @@
     </div>
 </div>
 <!--========== FOOTER ==========-->
-<footer class="footer section">
+<footer class="footer section" style="margin-top: 140px">
     <div class="footer__container bd-container bd-grid">
         <div class="footer__content">
             <h3 class="footer__title">
