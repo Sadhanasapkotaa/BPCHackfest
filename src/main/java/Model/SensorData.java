@@ -4,6 +4,8 @@ public class SensorData {
 
     private int id;
 
+
+
     private String status;
 
     private String distance;

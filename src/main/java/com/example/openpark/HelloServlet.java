@@ -57,6 +57,15 @@ public class HelloServlet extends HttpServlet {
 //            requestDispatcher.forward(req, resp);
 //        }
 
+        if(page.equalsIgnoreCase("bookingSlot")){
+            String email = req.getParameter("email");
+            String slotNo=req.getParameter("slotNo");
+
+
+
+
+        }
+
         if(page.equalsIgnoreCase("adminLogout")){
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
             requestDispatcher.forward(req, resp);
