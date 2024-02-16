@@ -31,40 +31,20 @@ document.getElementById('searchButton').addEventListener('click', () => {
     try {
         // Manually provided data
         const responseData = [
-            { displayName: 'Bhaktapur', latitude: 27.617, longitude: 85.4296 },
-            { displayName: 'Lalitpur', latitude: 27.6669, longitude: 85.3126 },
-            { displayName: 'Lalitpur', latitude: 27.6663, longitude: 85.333 }
+            { displayName: 'Ghantaghar', latitude: 27.019178988591104, longitude: 84.87897525192585 },
+            { displayName: 'Bhatbhateni', latitude: 27.04488734401453, longitude: 84.89898142723736 },
+            { displayName: 'Clarks Resort', latitude: 27.047343085304483, longitude: 84.90595446153432 }
 
         ];
 
         // Set the result list using all the data
         setResultList(responseData);
+
+        zoomToSearchResults(responseData);
     } catch (error) {
         console.error('Error fetching locations:', error);
     }
 });
-
-
-// document.getElementById('search-button').addEventListener('click', async () => {
-//     const query = searchInput.value;
-//     console.log('Search query:', query); // Check if query is being captured correctly
-//     try {
-//         // Fetch the JSON data from the test.json file
-//         const testDataResponse = await fetch('test.json');
-//
-//         if (!testDataResponse.ok) {
-//             throw new Error('Failed to fetch test data');
-//         }
-//         const testData = await testDataResponse.json();
-//
-//         const filteredData = testData.filter(item => item.name.includes(query));
-//
-//         // Set the filtered data as the result list
-//         setResultList(filteredData);
-//     } catch (error) {
-//         console.error('Error fetching or processing test data:', error);
-//     }
-// });
 
 
 
@@ -77,12 +57,14 @@ function setResultList(parsedResult) {
     }
     const bounds = new L.LatLngBounds(); // Create bounds object
 
-    for (const result of parsedResult) {
+    for (let i = 0; i < parsedResult.length; i++) {
+        const result = parsedResult[i];
         const li = document.createElement('li');
         li.classList.add('list-group-item', 'list-group-item-action');
-        li.innerHTML = result.name;
+        li.innerHTML = result.displayName; // Use displayName instead of name
+        li.dataset.index = i; // Set dataset index for referencing clicked data
         li.addEventListener('click', (event) => {
-            for(const child of resultList.children) {
+            for (const child of resultList.children) {
                 child.classList.remove('active');
             }
             event.target.classList.add('active');
@@ -90,7 +72,7 @@ function setResultList(parsedResult) {
             const position = new L.LatLng(clickedData.latitude, clickedData.longitude);
             map.flyTo(position, 12);
             createRouteToLocation(clickedData);
-        })
+        });
         resultList.appendChild(li);
 
         const position = new L.LatLng(result.latitude, result.longitude);
@@ -127,4 +109,19 @@ function createRouteToLocation(destination) {
         console.error('Error getting user location:', error);
     });
 }
+
+
+//functionto zoom in searched results
+function zoomToSearchResults(results) {
+    const bounds = new L.LatLngBounds(); // Create bounds object
+
+    for (const result of results) {
+        const position = new L.LatLng(result.latitude, result.longitude);
+        bounds.extend(position); // Extend bounds to include marker position
+    }
+
+    // Fit map to the bounds containing all markers
+    map.fitBounds(bounds, { padding: [100, 100] }); // Optional padding
+}
+
 

@@ -342,8 +342,9 @@ public class HelloServlet extends HttpServlet {
 
             new ParkingService().userBooking(dt);
 
-            RequestDispatcher requestDispatcher = req.getRequestDispatcher("searchMap.jsp");
-            requestDispatcher.forward(req, resp);
+//            RequestDispatcher requestDispatcher = req.getRequestDispatcher("searchMap.jsp");
+//            requestDispatcher.forward(req, resp);
+            resp.sendRedirect("searchMap.jsp");
         }
 
         //for login of user using result set from database
