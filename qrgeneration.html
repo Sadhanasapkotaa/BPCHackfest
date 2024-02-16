@@ -71,8 +71,6 @@
             class="qr-code img-thumbnail img-responsive"
           />
         </div>
-
-        <button type="button" class="button" id="generate">Generate QR</button>
       </div>
     </main>
 
@@ -129,25 +127,19 @@
     const jsondata = [
       {
         id: 1,
-        name: "T-Shirt",
-        category: "Clothing",
+        name: "Parking 1",
+        category: "Bike",
         price: 20,
-        quantity: null,
+       
       },
       {
         id: 2,
-        name: "Smartphone",
-        category: "Electronics",
-        price: 500,
-        quantity: null,
+        name: "Parking 1",
+        category: "Bike",
+        price: 20,
+       
       },
-      {
-        id: 12,
-        name: "Headphones",
-        category: "Electronics",
-        price: 50,
-        quantity: null,
-      },
+      
     ];
 
     // Filter the jsondata array to get items with id equal to 12
@@ -159,17 +151,14 @@
     function htmlEncode(selectedDataString) {
       return $("<div/>").text(selectedDataString).html();
     }
+    
     $(function () {
-      $("#generate").click(function () {
-        $(".qr-code")
-          .css("visibility", "visible")
-          .attr(
-            "src",
-            "https://chart.googleapis.com/chart?cht=qr&chl=" +
-              htmlEncode(selectedDataString) +
-              "&chs=160x160&chld=L|0"
-          );
-      });
+      $(".qr-code").css("visibility", "visible").attr(
+        "src",
+        "https://chart.googleapis.com/chart?cht=qr&chl=" +
+          htmlEncode(selectedDataString) +
+          "&chs=160x160&chld=L|0"
+      );
     });
   </script>
 </html>
