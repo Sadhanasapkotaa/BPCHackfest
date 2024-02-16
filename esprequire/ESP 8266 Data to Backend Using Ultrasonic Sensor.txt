@@ -1,0 +1,77 @@
+#include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h>
+#include <ESP8266HTTPClient.h>
+
+const char* ssid = "WIFI SSID";
+const char* password = "WIFI PASSWORD";
+
+String Url = "ipaddress/test.php";
+
+const int trigPin = 12;
+const int echoPin = 14;
+
+#define SOUND_VELOCITY 0.034
+#define CM_TO_INCH 0.393701
+
+unsigned long lastTime = 0;
+unsigned long timerDelay = 5000;
+
+int distance = 0; // Declare distance as a global variable
+String status = "";
+String slotNo = "1";
+
+void setup() {
+  pinMode(trigPin, OUTPUT); // Sets the trigPin as an Output
+  pinMode(echoPin, INPUT);
+  Serial.begin(115200);
+  
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(1000);
+    Serial.println("Connecting to WiFi...");
+  }
+  
+  Serial.println("");
+  Serial.print("Connected to WiFi network with IP Address: ");
+  Serial.println(WiFi.localIP());
+  Serial.println("HTTP server started");
+
+  Serial.println("Timer set to 5 seconds (timerDelay variable), it will take 5 seconds before publishing the first reading.");
+}
+
+void loop() {
+  delayMicroseconds(5);
+  digitalWrite(trigPin, HIGH);
+  delay(1000);
+  digitalWrite(trigPin, LOW);
+
+  // Reads the echoPin, returns the sound wave travel time in microseconds
+  int duration = pulseIn(echoPin, HIGH);
+ 
+  // Calculate the distance
+  distance = duration * SOUND_VELOCITY / 2;
+
+  if (distance > 10) {
+    status = "empty";
+  } else if (distance < 10) {
+    status = "full";
+  }
+
+  // Prepare the data to send
+  String postData = "dist=" + String(distance) + "&status=" + status + "&slotNo=" + slotNo;
+
+  WiFiClient client;
+  HTTPClient http;
+
+  http.begin(client, Url);
+  http.addHeader("Content-Type", "application/x-www-form-urlencoded");
+  
+  int httpCode = http.POST(postData);
+  String payload = http.getString();
+  
+  Serial.print("URL : ");
+  Serial.print(Url);
+  Serial.print(" payload: ");
+  Serial.print(payload);
+  Serial.println(distance);
+}
