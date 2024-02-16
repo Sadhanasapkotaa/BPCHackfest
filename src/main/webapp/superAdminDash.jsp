@@ -110,7 +110,7 @@
                                 class="h6 font-semibold text-muted text-sm d-block mb-2"
                         >New applicants</span
                         >
-                                        <span class="h3 font-bold mb-0">215</span>
+                                        <span class="h3 font-bold mb-0">${ApplicantNo}</span>
                                     </div>
                                     <div class="col-auto">
                                         <div
@@ -133,7 +133,7 @@
                                 class="h6 font-semibold text-muted text-sm d-block mb-2"
                         >Parked Hours</span
                         >
-                                        <span class="h3 font-bold mb-0">1.400</span>
+                                        <span class="h3 font-bold mb-0">83</span>
                                     </div>
                                     <div class="col-auto">
                                         <div
@@ -156,7 +156,7 @@
                                 class="h6 font-semibold text-muted text-sm d-block mb-2"
                         >Profit Margin</span
                         >
-                                        <span class="h3 font-bold mb-0">95%</span>
+                                        <span class="h3 font-bold mb-0">17%</span>
                                     </div>
                                     <div class="col-auto">
                                         <div
@@ -310,7 +310,7 @@
                                         </div>
                                     </td>
                                     <td class="text-end">
-                                        <a href="openpark?page=viewSlot"  id="btn1"  class="btn btn-sm btn-neutral">View Slot</a>
+                                        <a href="openpark?page=viewSlot"  id="btn1"  class="btn btn-sm btn-neutral">View Slot ${fullSlot}</a>
 
                                     </td>
                                 </tr>

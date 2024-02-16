@@ -27,6 +27,34 @@ public class ParkingService {
       return count;
     }
 
+    public int countNotAvailableSlot() {
+        int count = 0;
+        String query = "SELECT COUNT(*) AS status FROM espdata1 WHERE status = 'empty'";
+        try {
+            PreparedStatement preparedStatement = new DBConnection().getStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                count = resultSet.getInt("status");
+            }
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return count;
+    }
+
+    public int countApplicants() {
+        String query = "select count(*) from admindetails";
+        PreparedStatement preparedStatement = new DBConnection().getStatement(query);
+        try {
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next()) {
+                return resultSet.getInt(1);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
 
 
     public List<SensorData> getSensor1Status(){
