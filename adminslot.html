@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slots</title>
+    <style>
+        .container-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax values as needed */
+            gap: 20px;
+            padding: 20px; /* Add padding to container wrapper */
+        }
+        .container {
+            margin-bottom: 20px; /* Add margin to container */
+        }
+        .box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100px;
+            border: 1px solid #000;
+            border-radius: 10px; /* Add border radius */
+            padding: 10px; /* Add padding */
+            cursor: pointer; /* Change cursor to pointer for clickable elements */
+        }
+        .full {
+            background-color: red;
+        }
+        .empty {
+            background-color: green;
+        }
+        @media (max-width: 768px) {
+            /* Adjust styles for smaller screens */
+            .container-wrapper {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Adjust minmax values for smaller screens */
+            }
+        }
+        @media (max-width: 576px) {
+            /* Adjust styles for even smaller screens */
+            .container-wrapper {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Adjust minmax values for even smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+<%-- Replace JSP tags with static HTML --%>
+<%-- Use a static value for useremail for testing purposes --%>
+<%-- <% String useremail = (String) session.getAttribute("email1"); %> --%>
+<div class="container-wrapper">
+    <%-- Loop through sensorList using static data for demonstration --%>
+    <%-- Replace "${sensorList}" with your actual list variable if available --%>
+    <%-- Replace "${sd}" with your actual variable name for each item --%>
+    <%-- Replace "${loop.index}" with "${sd.index}" if available --%>
+    <%-- Replace "${sd.slotNo}", "${sd.status}", "${sd.distance}" with actual properties --%>
+    <%-- For demonstration, the onclick events are replaced with console.log statements --%>
+    <div class="container">
+        <div class="box empty" onclick="console.log('Confirm booking for slot ${sd.slotNo}')">
+            <div class="sub-box">${sd.slotNo}</div>
+            <div class="sub-box">${sd.status}</div>
+            <div class="sub-box">${sd.distance}</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="box full" onclick="console.log('Show message for slot ${sd.slotNo}')">
+            <div class="sub-box">${sd.slotNo}</div>
+            <div class="sub-box">${sd.status}</div>
+            <div class="sub-box">${sd.distance}</div>
+        </div>
+    </div>
+</div>
+<!-- Hidden form to handle booking submission -->
+
+</body>
+</html>
