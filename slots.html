@@ -146,6 +146,7 @@
       </div>
     </nav>
   </header>
+  <br> <br><br><br><br><br><br><br>
 
   <!-- Parking Lot Section -->
   <div class="parking-lot">
@@ -193,11 +194,11 @@
   <!-- Confirmation Message -->
   <div id="confirmationMessage" class="modal" style="display: none;">
     <div class="modal-content">
-      <p>Slot booked successfully!</p>
-      <button id="getQRBtn" class="btn get-qr-btn">Get QR Code</button>
+      <p id="confirmationText">Slot booked successfully!</p>
+      <button id="getQRBtn" class="btn get-qr-btn" style="display: none;">Get QR Code</button>
     </div>
   </div>
-
+<br><br><br><br><br><br>
   <!-- Footer Section -->
   <footer class="footer section">
     <div class="footer__container bd-container bd-grid">
@@ -251,64 +252,72 @@
 
   <!-- JavaScript -->
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const slots = document.querySelectorAll('.slot');
-      const modal = document.getElementById("myModal");
-      const confirmBtn = document.getElementById("confirmBtn");
-      const cancelBtn = document.getElementById("cancelBtn");
-      const confirmationMessage = document.getElementById("confirmationMessage");
-      const getQRBtn = document.getElementById("getQRBtn");
+  document.addEventListener("DOMContentLoaded", function() {
+  const slots = document.querySelectorAll('.slot');
+  const modal = document.getElementById("myModal");
+  const confirmBtn = document.getElementById("confirmBtn");
+  const cancelBtn = document.getElementById("cancelBtn");
+  const confirmationMessage = document.getElementById("confirmationMessage");
+  const confirmationText = document.getElementById("confirmationText");
+  const getQRBtn = document.getElementById("getQRBtn");
 
-      // Function to book a slot
-      function bookSlot(slot) {
-        if (!slot.classList.contains('booked')) {
-          slot.querySelectorAll('.available').forEach(part => {
-            part.style.backgroundColor = 'red';
-            part.classList.add('booked');
-          });
-          slot.classList.add('booked');
-          confirmationMessage.style.display = "block";
-        }
+  // Function to book a slot
+  function bookSlot(slot, showConfirmation = true) {
+    if (!slot.classList.contains('booked')) {
+      slot.querySelectorAll('.available').forEach(part => {
+        part.style.backgroundColor = 'red';
+        part.classList.add('booked');
+      });
+      slot.classList.add('booked');
+      if (showConfirmation) {
+        confirmationMessage.style.display = "block";
+        confirmationText.textContent = "Slot booked successfully!";
+        getQRBtn.style.display = "inline-block";
       }
+    }
+  }
 
-      // Function to handle "Get QR Code" button click
-      function handleGetQRButtonClick() {
-        // Your logic for generating QR code goes here
-        alert("QR Code generated!");
-      }
+  // Function to handle "Get QR Code" button click
+  function handleGetQRButtonClick() {
+    // Your logic for generating QR code goes here
+    alert("QR Code generated!");
+  }
 
-      // Add event listeners
+  // Add event listeners
+  confirmBtn.onclick = function() {
+    modal.style.display = "none";
+    confirmationMessage.style.display = "none";
+  };
+
+  cancelBtn.onclick = function() {
+    modal.style.display = "none";
+    confirmationMessage.style.display = "none";
+  };
+
+  getQRBtn.onclick = handleGetQRButtonClick;
+
+  // Book slot 1 by default without showing confirmation message
+  bookSlot(document.getElementById("slot1"), false);
+
+  // Add click event listeners to other slots
+  slots.forEach(slot => {
+    slot.addEventListener('click', function() {
+      modal.style.display = "block";
+
       confirmBtn.onclick = function() {
+        bookSlot(slot);
         modal.style.display = "none";
-        confirmationMessage.style.display = "none";
       };
 
       cancelBtn.onclick = function() {
         modal.style.display = "none";
-        confirmationMessage.style.display = "none";
       };
-
-      getQRBtn.onclick = handleGetQRButtonClick;
-
-      // Book Slot 1 by default
-      bookSlot(document.getElementById("slot1"));
-
-      // Add click event listeners to other slots
-      slots.forEach(slot => {
-        slot.addEventListener('click', function() {
-          modal.style.display = "block";
-
-          confirmBtn.onclick = function() {
-            bookSlot(slot);
-            modal.style.display = "none";
-          };
-
-          cancelBtn.onclick = function() {
-            modal.style.display = "none";
-          };
-        });
-      });
     });
+  });
+});
+
+
+
   </script>
 </body>
 </html>
