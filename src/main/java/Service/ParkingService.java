@@ -222,7 +222,7 @@ public class ParkingService {
         } catch (SQLException e){
             e.printStackTrace();
         }
-        return false;
+        return hasParked;
     }
 
     //select booking details
@@ -267,6 +267,11 @@ public class ParkingService {
             e.printStackTrace();
         }
 
+    }
+
+    public static void main(String[] args) {
+        ParkingService service = new ParkingService();
+        service.getQR();
     }
 
 
