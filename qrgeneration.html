@@ -123,6 +123,7 @@
   </body>
 
   <script>
+    // Assuming id and jsondata are defined somewhere before this script block
     const id = 2;
     const jsondata = [
       {
@@ -130,23 +131,33 @@
         name: "Parking 1",
         category: "Bike",
         price: 20,
-       
       },
       {
         id: 2,
         name: "Parking 1",
         category: "Bike",
         price: 20,
-       
       },
-      
     ];
-
-    // Filter the jsondata array to get items with id equal to 12
-    const selectedData = jsondata.filter((item) => item.id === id);
-
-    const selectedDataString = JSON.stringify(selectedData);
+  
+    // Filter the jsondata array to get items with id equal to the specified id
+    const selectedData = jsondata.find((item) => item.id === id);
+  
+    // Construct the text string based on the selected data
+    const textData = `Nischal Booked Slot2 of ${selectedData.name} for ${selectedData.category}.`;
+  
+    // Encode the text string into HTML entities to prevent encoding issues
+    const encodedTextData = $("<div/>").text(textData).html();
+  
+    // Generate the QR code with the encoded text data
+    $(function () {
+      $(".qr-code").css("visibility", "visible").attr(
+        "src",
+        `https://chart.googleapis.com/chart?cht=qr&chl=${encodedTextData}&chs=160x160&chld=L|0`
+      );
+    });
   </script>
+  
   <script>
     function htmlEncode(selectedDataString) {
       return $("<div/>").text(selectedDataString).html();
