@@ -420,7 +420,7 @@
     <div class="btns_wrap">
         <div class="common_btns form_3_btns">
             <a href="adminform2.html">
-                <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span>Back</button>
+                <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span><a href="AdminLogin2.jsp" style="text-decoration: none; color: white">Back</a> </button>
             </a>
             <button type="submit" class="btn_done">Done</button>
         </div>

@@ -80,8 +80,6 @@
                     parking problems.The parking-space sharing helps us to detect untouched area for parking.
                 </p>
                 <a href="openpark?page=userChooseDevice" class="button">Get Started</a>
-<%--                <a href="openpark?page=OpenMap">Map</a>--%>
-                <a href="openpark?page=ParkingSlot">Slot</a>
             </div>
         </div>
     </section>

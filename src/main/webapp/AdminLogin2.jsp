@@ -111,7 +111,7 @@
                 <br>
                 <div class="btns_wrap">
                     <div class="common_btns form_2_btns">
-                        <button type="button" class="btn_back"><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span><a href="openpark?page=adminLogin">Back</a></button>
+                        <button type="button" class="btn_back" ><span class="icon"><ion-icon name="arrow-back-sharp"></ion-icon></span><a href="openpark?page=adminLogin" style="text-decoration: none; color: white">Back</a></button>
                         <button type="submit" class="btn_next">Next <span class="icon"><ion-icon name="arrow-forward-sharp"></ion-icon></span></button>
                     </div>
                 </div>
