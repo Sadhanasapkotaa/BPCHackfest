@@ -25,12 +25,12 @@
         <a href="#" class="nav__logo">OPEN<b>PARK</b></a>
 
         <div class="nav__menu" id="nav-menu">
+
+        <% if (session != null && session.getAttribute("id") != null) { %>
+
             <ul class="nav__list">
                 <li class="nav__item">
                     <a href="#home" class="nav__link active-link">Home</a>
-                </li>
-                <li class="nav__item">
-                    <a href="#share" class="nav__link">Owner</a>
                 </li>
                 <li class="nav__item">
                     <a href="#decoration" class="nav__link">Features</a>
@@ -38,6 +38,21 @@
                 <li class="nav__item">
                     <a href="#accessory" class="nav__link">Pricing</a>
                 </li>
+                <% } else { %>
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">Home</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#share" class="nav__link">Owner</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#decoration" class="nav__link">Features</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#accessory" class="nav__link">Pricing</a>
+                    </li>
+                <% } %>
 
 <%--                <li class="nav__item">--%>
 <%--                    <a href="openpark?page=userLoginSignup" class="nav-button">Login</a>--%>
@@ -246,7 +261,7 @@
         </div>
     </div>
 
-    <p class="footer__copy">&#169; 2024 Team Everest. Kathfest Hackathon. All right reserved</p>
+    <p class="footer__copy">&#169; 2024 Team Everest. BPC Hackathon. All right reserved</p>
 </footer>
 
 <!--========== SCROLL REVEAL ==========-->
