@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="OPENPARK:war" />
       <artifact name="OPENPARK:war exploded" />
     </artifacts-to-build>
   </component>
@@ -11,9 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d45da55e-a683-4d6e-a70d-de6a6b325113" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/Slots.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Slots.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/superAdminDash.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/superAdminDash.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,7 +169,7 @@
       <option name="presentableId" value="Default" />
       <updated>1707991350791</updated>
       <workItem from="1707991351765" duration="74000" />
-      <workItem from="1708032390134" duration="31871000" />
+      <workItem from="1708032390134" duration="32518000" />
     </task>
     <servers />
   </component>

@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Slots</title>
+    <meta http-equiv="refresh" content="3">
     <style>
         body {
             font-family: Arial, sans-serif;
