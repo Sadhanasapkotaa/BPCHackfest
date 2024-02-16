@@ -242,8 +242,6 @@ public class ParkingService {
                 Time endTime = resultSet.getTime("endTime");
                 String vehicleType = resultSet.getString("vehicleType");
 
-
-
                 ////////////////////////////////////////
                 JSONObject jsonObject = new JSONObject();
                 jsonObject.put("bookingid", bookingid);
