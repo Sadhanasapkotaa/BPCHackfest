@@ -12,9 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d45da55e-a683-4d6e-a70d-de6a6b325113" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/openpark/HelloServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/Slots.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/Slots.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/userdateandtime.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/userdateandtime.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +60,7 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "BackendB",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/sanzi/Documents/OnlineMeatShop-JavaServlet-main",
+    "last_opened_file_path": "C:/Users/sanzi/IdeaProjects/OPENPARK/esprequire",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
@@ -71,6 +68,11 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sanzi\IdeaProjects\OPENPARK\esprequire" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Tomcat 8.5.87" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.87" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
@@ -171,7 +173,7 @@
       <option name="presentableId" value="Default" />
       <updated>1707991350791</updated>
       <workItem from="1707991351765" duration="74000" />
-      <workItem from="1708032390134" duration="39131000" />
+      <workItem from="1708032390134" duration="40023000" />
     </task>
     <servers />
   </component>
