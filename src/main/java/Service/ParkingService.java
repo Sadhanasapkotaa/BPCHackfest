@@ -269,10 +269,7 @@ public class ParkingService {
 
     }
 
-    public static void main(String[] args) {
-        ParkingService service = new ParkingService();
-        service.loginUser("user", "user");
-    }
+     
 
 
 }
