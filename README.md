@@ -31,7 +31,7 @@ This privileged user has comprehensive access to all functions within the applic
 - Verify the parking space
 - See the available slot information
  
-### House Owners
+### Organization Owners
 
 They have the opportunity to rent out their parking spaces to end customers, thereby utilizing their private property and earning income. Additionally:
 
@@ -46,7 +46,6 @@ End customers are users seeking parking solutions. They can use the application 
 - Search for available parking spaces in specific areas.
 - Book parking spaces for desired durations.
 - Receive QR codes for access.
-- Make payments securely through the app2E
 
 
 ## Tech Stack
