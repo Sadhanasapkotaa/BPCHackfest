@@ -287,7 +287,6 @@ public class ParkingService {
             preparedStatement.setDate(2, Date.valueOf(dt.getExitDate()));
             preparedStatement.setTime(3, Time.valueOf(dt.getEntryTime()));
             preparedStatement.setTime(4, Time.valueOf(dt.getExitTime()));
-
             preparedStatement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

@@ -51,7 +51,7 @@
 </head>
 <body>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<% String useremail = (String) session.getAttribute("email"); %>
+<% String useremail = (String) session.getAttribute("email1"); %>
 <div class="container-wrapper">
     <c:forEach items="${sensorList}" var="sd" varStatus="loop">
         <div class="container">
@@ -72,33 +72,12 @@
                 </c:otherwise>
             </c:choose>
         </div>
-
-        <form id="bookingForm" method="post" action="openpark?page=bookingSlot">
-            <input type="hidden" id="slotNo" name="slotNo" value=${sd.slotNo}>
-
-            <input type="hidden" name="email" value=<%=useremail%> >
-                    </form>
     </c:forEach>
 </div>
 
 <!-- Hidden form to handle booking submission -->
 
 
-<script>
-    function confirmBooking(slotNo) {
-        var confirmation = confirm("Are you sure you want to book slot " + slotNo + "?");
-        if (confirmation) {
-            // Set slot number and submit the form
-            document.getElementById('slotNo').value = slotNo;
-            document.getElementById('bookingForm').submit();
-        } else {
-            // Do nothing
-        }
-    }
 
-    function showMessage() {
-        alert("This slot is already full or booked.");
-    }
-</script>
 </body>
 </html>

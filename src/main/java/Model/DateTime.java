@@ -11,25 +11,6 @@ public class DateTime {
     private LocalTime entryTime;
     private LocalTime exitTime;
 
-    private String slotNo;
-
-    private String booked;
-
-    public String getSlotNo() {
-        return slotNo;
-    }
-
-    public void setSlotNo(String slotNo) {
-        this.slotNo = slotNo;
-    }
-
-    public String getBooked() {
-        return booked;
-    }
-
-    public void setBooked(String booked) {
-        this.booked = booked;
-    }
 
     public int getDateId() {
         return dateId;

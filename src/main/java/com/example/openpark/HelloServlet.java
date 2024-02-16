@@ -367,11 +367,13 @@ public class HelloServlet extends HttpServlet {
             HttpSession session = req.getSession(false);
 
             if (session != null && session.getAttribute("id") != null) {
+
+
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("userdateandtime.jsp");
                 requestDispatcher.forward(req, resp);
             } else {
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("userLoginSignup.jsp");
-                requestDispatcher.forward(req, resp);
+                                requestDispatcher.forward(req, resp);
             }
         }
 
@@ -400,6 +402,7 @@ public class HelloServlet extends HttpServlet {
 
         //date time from user for booking
         if (page.equalsIgnoreCase("datetime")) {
+
             DateTime dt = new DateTime();
 
             dt.setEntryDate(LocalDate.parse(req.getParameter("entryDate")));
@@ -445,10 +448,12 @@ public class HelloServlet extends HttpServlet {
 
                 if (user != null) {
                     int id = user.getUserId();
+                    String email1 = user.getEmail();
 
                     //if authentication is successful create session
                     HttpSession session = req.getSession(true);
                     session.setAttribute("id", id);
+                    session.setAttribute("email1", email1);
 
                     // Create a cookie for the username
                     Cookie cookie = new Cookie("email", email);
