@@ -269,7 +269,10 @@ public class ParkingService {
 
     }
 
-     
+    public static void main(String[] args) {
+        ParkingService service = new ParkingService();
+        service.getQR();
+    }
 
 
 }
