@@ -198,6 +198,7 @@
                                 </td>
                                 <td>
                                         ${admin.email}
+
                                 </td>
                                 <td>
                                     <a class="text-heading font-semibold" href="#">
@@ -205,7 +206,9 @@
                                     </a>
                                 </td>
                                 <td>
-                                    ${admin.idNumber}
+                                    <a class="text-heading font-semibold" href="#">
+                                            ${admin.idNumber}
+                                    </a>
                                 </td>
                                 <td>
                                     <span class="badge badge-lg badge-dot">
@@ -283,7 +286,10 @@
                                         </a>
                                     </td>
                                     <td>
-                                            ${admin1.idNumber}
+                                        <a class="text-heading font-semibold" href="#">
+                                                ${admin1.idNumber}
+                                        </a>
+
                                     </td>
                                     <td>
                                             <span class="badge badge-lg badge-dot">
@@ -310,7 +316,7 @@
                                         </div>
                                     </td>
                                     <td class="text-end">
-                                        <a href="openpark?page=viewSlot"  id="btn1"  class="btn btn-sm btn-neutral">View Slot</a>
+                                        <a href="openpark?page=viewSlot&company=${admin1.fullName}"  id="btn1"  class="btn btn-sm btn-neutral">View Slot</a>
 
                                     </td>
                                 </tr>

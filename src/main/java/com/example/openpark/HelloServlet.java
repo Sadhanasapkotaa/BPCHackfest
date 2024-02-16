@@ -41,6 +41,10 @@ public class HelloServlet extends HttpServlet {
         if(page.equalsIgnoreCase("viewSlot")){
 
 
+            String company = req.getParameter("company");
+
+            HttpSession session = req.getSession();
+            session.setAttribute("companyName", company);
             SensorData sd = new SensorData();
 
 

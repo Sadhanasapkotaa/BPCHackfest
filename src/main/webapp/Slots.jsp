@@ -5,13 +5,20 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #fff;
             margin: 0;
             padding: 20px;
         }
+        /*.container-wrapper {*/
+        /*    display: grid;*/
+        /*    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); !* Adjust minmax values as needed *!*/
+        /*    gap: 20px;*/
+        /*    padding: 20px; !* Add padding to container wrapper *!*/
+        /*}*/
+
         .container-wrapper {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust minmax values as needed */
+            grid-template-columns: repeat(4, minmax(200px, 1fr)); /* Display four slots per row */
             gap: 20px;
             padding: 20px; /* Add padding to container wrapper */
         }
@@ -67,22 +74,23 @@
 <body>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <% String useremail = (String) session.getAttribute("email1"); %>
+<h1 style="text-align: center">${companyName}</h1>
 <div class="container-wrapper">
     <c:forEach items="${sensorList}" var="sd" varStatus="loop">
         <div class="container">
             <c:choose>
                 <c:when test="${sd.status eq 'empty'}">
                     <div class="box empty" onclick="confirmBooking(${sd.slotNo})">
-                        <div class="sub-box">${sd.slotNo}</div>
+                        <div class="sub-box">Slot ${sd.slotNo}</div>
                         <div class="sub-box">${sd.status}</div>
-                        <div class="sub-box">${sd.distance}</div>
+<%--                        <div class="sub-box">${sd.distance}</div>--%>
                     </div>
                 </c:when>
                 <c:otherwise>
                     <div class="box full" onclick="showMessage()">
-                        <div class="sub-box">${sd.slotNo}</div>
+                        <div class="sub-box">Slot ${sd.slotNo}</div>
                         <div class="sub-box">${sd.status}</div>
-                        <div class="sub-box">${sd.distance}</div>
+<%--                        <div class="sub-box">${sd.distance}</div>--%>
                     </div>
                 </c:otherwise>
             </c:choose>
