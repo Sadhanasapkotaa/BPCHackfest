@@ -40,7 +40,7 @@ document.getElementById('searchButton').addEventListener('click', () => {
         // Set the result list using all the data
         setResultList(responseData);
 
-        zoomToSearchResults(responseData);
+        zoomToSearchTheResults(responseData);
     } catch (error) {
         console.error('Error fetching locations:', error);
     }
@@ -111,7 +111,7 @@ function createRouteToLocation(destination) {
 }
 
 //functionto zoom in searched results
-function zoomToSearchResults(results) {
+function zoomToSearchTheResults(results) {
     const bounds = new L.LatLngBounds(); // Create bounds object
 
     for (const result of results) {
@@ -122,5 +122,4 @@ function zoomToSearchResults(results) {
     // Fit map to the bounds containing all markers
     map.fitBounds(bounds, { padding: [100, 100] }); // Optional padding
 }
-
 
